@@ -1,5 +1,6 @@
 # Feminist AI LAN Party
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/83f2eb8b-6420-440a-ad54-1b1eb0988cff/deploy-status)](https://app.netlify.com/sites/feminist-ai/deploys)
 
 ## 💛 Contributing to the site
 
