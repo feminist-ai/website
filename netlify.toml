@@ -1,0 +1,10 @@
+[build]
+base = "/"
+publish = ".next/"
+command = "npm run build"
+
+# [[redirects]]
+# # Netlify
+# from = "https://feminist-ai.netlify.app/*"
+# to = "https://feminist-ai.party/:splat"
+# force = true

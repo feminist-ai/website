@@ -1,0 +1,68 @@
+$breakpoint: 768px
+
+.content
+    font-size: 1.8rem
+
+    @media(max-width: #{$breakpoint})
+        font-size: 1.6rem
+
+    ul, ol
+        font-size: 1.6rem
+
+    p
+        margin-bottom: 2rem
+
+        &:first-child
+            font-size: 2.2rem
+            margin-bottom: 3rem
+
+            @media(max-width: #{$breakpoint})
+                font-size: 1.8rem
+
+    h2, h3, h4, h5, h6
+        padding-top: 1.5rem
+
+.header
+    padding-top: 3rem
+
+.label
+    background: var(--color-theme)
+    color: var(--color-bg)
+    font-size: 2.6rem
+    text-transform: uppercase
+    font-family: var(--font-primary)
+    font-weight: bold
+    padding: 0.1em 0.35em
+    margin-bottom: 1rem
+    display: inline-block
+    transform: rotate(-1.25deg)
+
+    @media(max-width: #{$breakpoint})
+        font-size: 2rem
+
+.icon
+    margin-right: 1.25rem
+    bottom: 6px
+
+.toc
+    opacity: 0.6
+    list-style: none
+    font-size: 1.4rem
+
+    li
+        &:not(:last-child)
+            margin-bottom: 0.2rem
+
+        @media(max-width: #{$breakpoint})
+            display: inline
+
+            &:not(:last-child)
+                margin: 0
+
+                &:after
+                    content: "\2022"
+                    padding: 0 0.75rem
+
+.toc-title
+    font-size: inherit
+    margin: 2.5rem 0 0.25rem

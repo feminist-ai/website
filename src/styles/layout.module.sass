@@ -1,0 +1,56 @@
+$breakpoint: 768px
+
+.root
+    background: var(--color-bg)
+    position: relative
+
+    ::selection
+        background: var(--color-bg-highlight)
+        color: var(--color-text)
+
+.main
+    width: var(--width-layout)
+    max-width: 100%
+    margin: 0 auto
+    padding: 0 4rem 8rem
+
+    @media(max-width: #{$breakpoint})
+        padding-bottom: 0
+
+.page .main
+    $spacing: 320px
+    width: calc(var(--width-page) + #{$spacing})
+    margin: 0
+    padding: 0 6rem 8rem $spacing
+
+    @media(max-width: #{$breakpoint})
+        width: 100%
+        padding: 0 3rem 4rem
+
+.page .header
+    position: fixed
+    top: 55px
+    left: 70px
+
+    @media(max-width: #{$breakpoint})
+        position: static
+        padding-top: 5rem
+
+.logo
+    width: 220px
+    height: auto
+
+.nav
+    position: absolute
+    top: 0
+    right: 0
+    padding: 1.5rem 2rem
+    list-style: none
+    font-size: 1.2rem
+    font-family: var(--font-display)
+
+    li
+        display: inline
+
+        &:not(:last-child)
+            margin-right: 2rem

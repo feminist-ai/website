@@ -1,0 +1,163 @@
+$breakpoint: 768px
+
+.link
+    cursor: pointer
+    text-decoration: underline
+    text-decpration-skip-ink: auto
+    text-decoration-thickness: 2px
+    text-decoration-color: var(--color-theme)
+
+.h
+    --font-size-1: 4.8rem
+    --font-size-2: 4rem
+    --font-size-3: 3.2rem
+    --font-size-4: 2.8rem
+    --font-size-5: 2.4rem
+    --font-size-6: 2.2rem
+    --font-size-7: 2rem
+    --font-size-8: 1.8rem
+
+    margin-bottom: 0.5em
+    font-weight: bold
+    line-height: 1.1
+    font-family: var(--font-display)
+
+.h1
+    font-size: var(--font-size-1)
+    margin-bottom: 5rem
+
+    @media(max-width: #{$breakpoint})
+        font-size: var(--font-size-2)
+        margin-bottom: 3rem
+        text-align: left
+
+.h2
+    font-size: var(--font-size-3)
+    font-weight: bold
+
+    @media(max-width: #{$breakpoint})
+        font-size: var(--font-size-4)
+
+.h3
+    font-size: var(--font-size-4)
+
+    @media(max-width: #{$breakpoint})
+        font-size: var(--font-size-5)
+
+.h4
+    font-size: var(--font-size-5)
+
+    @media(max-width: #{$breakpoint})
+        font-size: var(--font-size-6)
+
+.h5
+    font-size: var(--font-size-6)
+
+    @media(max-width: #{$breakpoint})
+        font-size: var(--font-size-7)
+
+.h6
+    font-size: var(--font-size-7)
+
+    @media(max-width: #{$breakpoint})
+        font-size: var(--font-size-8)
+
+.mark
+    font-weight: 600
+    background: var(--color-bg-highlight)
+    color: var(--color-text)
+    padding: 0.1em 0.2em 0.15em
+    box-decoration-break: clone
+    display: inline
+
+.ol, .ul
+    margin-bottom: 3.25rem
+    margin-top: 3.25rem
+    font-size: inherit
+
+    li
+        line-height: inherit
+
+        p:first-child
+            display: contents
+
+            & + *
+                margin-top: 4rem
+
+        &:before
+            position: relative
+            font-variant-numeric: tabular-nums
+            font-family: var(--font-display)
+            text-align: right
+            display: inline-block
+            line-height: 1
+            padding-right: 1em
+            margin-left: -2em
+            width: 2em
+
+.ul
+    list-style: none
+
+    li
+        padding-left: 2em
+        margin-bottom: 1rem
+
+        &:before
+            content: "*"
+            font-size: 1.7em
+            left: 0.55em
+            top: 0.25em
+
+.ol
+    list-style: none
+    counter-reset: li
+
+    li
+        padding-left: 2.2em
+        margin-bottom: 0.75em
+        counter-increment: li
+
+        &:before
+            content: counter(li) "."
+            font-size: 1.1em
+            font-weight: bold
+            left: 0.15em
+
+@mixin table-scroll
+    overflow: auto
+    white-space: nowrap
+    background: linear-gradient(var(--color-bg), var(--color-bg)), linear-gradient(var(--color-bg), var(--color-bg)) right, radial-gradient(at 0 50%, rgba(0, 0, 0, .3), transparent 70%), radial-gradient(at 100% 50%, rgba(0, 0, 0, .3), transparent 70%) right
+    background-size: 10px 100%
+    background-repeat: no-repeat
+    background-attachment: local, local, scroll, scroll
+
+.table
+    margin-bottom: 3rem
+    width: 100%
+    max-width: 100%
+
+    table
+        width: 100%
+
+    td, th
+        border-bottom: 1px solid var(--color-subtle)
+        font-size: 1.5rem
+        line-height: 1.2
+        padding: 0.75rem 1.25rem
+
+    th
+        font-weight: 600
+
+    td:first-child,
+    th:first-child
+        padding-left: 0
+
+    tr:last-child td,
+    tr:nth-last-child(2) td[rowspan="2"]
+        border-bottom: 0
+
+    @media(max-width: #{$breakpoint})
+        @include table-scroll
+
+.table-scroll
+    @include table-scroll

@@ -1,0 +1,45 @@
+$breakpoint: 768px
+
+.grid
+    display: grid
+    grid-template-columns: repeat(var(--grid-cols), 1fr)
+    grid-gap: 2.5rem
+    margin: 3rem 0
+
+    @media(max-width: #{$breakpoint})
+        grid-template-columns: 100%
+
+.card,
+.infobox
+    --color-card: var(--color-theme)
+    box-shadow: var(--box-shadow)
+    background: var(--color-bg)
+    padding: 1.5rem
+    font-size: 1.5rem
+
+.card-title,
+.infobox-title,
+.infobox h3
+    font-weight: bold
+    font-size: 1.7rem
+    margin-bottom: 0.5rem
+    padding-top: 0 !important
+
+.card,
+.infobox
+    p:last-child,
+    ul:last-child,
+    ol:last-child,
+    table:last-child,
+    img:last-child,
+    figure:last-child,
+    a:last-child
+        margin-bottom: 0
+
+.infobox
+    border-left: 10px solid var(--color-card)
+    padding: 1.75rem 2rem
+    margin-bottom: 5rem !important
+    margin-top: 3rem
+    font-size: 0.9em
+    text-align: left !important
