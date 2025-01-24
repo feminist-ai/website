@@ -8,6 +8,7 @@ import clsx from 'clsx'
 import Icon from './icon'
 import { Link } from './typography'
 import logo from '../images/logo.png'
+import { departureMono, geist } from '../fonts'
 import classes from '../styles/layout.module.sass'
 import { META, SOCIALS } from '../../content'
 
@@ -70,15 +71,17 @@ const Layout = (props: LayoutProps) => {
                     name="viewport"
                     content="width=device-width, initial-scale=1, shrink-to-fit=no"
                 />
-                <style>
-                    @import
-                    url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-                </style>
             </Head>
 
             <PlausibleProvider domain={META.domain}>
                 <main
-                    className={clsx(classes.root, className, { [classes.page]: isPage })}
+                    className={clsx(
+                        classes.root,
+                        departureMono.variable,
+                        geist.variable,
+                        className,
+                        { [classes.page]: isPage }
+                    )}
                     style={style}
                 >
                     <div className={classes.main}>
