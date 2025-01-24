@@ -2,8 +2,6 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-import { KITS, EVENTS } from '../content'
-
 const KITS_DIRECTORY = path.join(process.cwd(), 'content', 'kits')
 
 export interface KitData {
