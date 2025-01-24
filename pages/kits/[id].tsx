@@ -50,7 +50,7 @@ const ToC = (props: { toc: KitData['toc'] }) => {
             <h3 className={classes.tocTitle}>Table of Contents</h3>
             <ul className={classes.toc}>
                 {props.toc.map(([text, url]) => (
-                    <li>
+                    <li key={url}>
                         <Link href={url} noStyle>
                             {text}
                         </Link>

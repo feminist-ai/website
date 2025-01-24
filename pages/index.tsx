@@ -21,7 +21,6 @@ export async function getStaticProps() {
 
 const Index: NextPage<{ kits: KitData[] }> = (props) => {
     const { kits } = props
-    console.log(props)
     return (
         <Layout
             header={
@@ -92,8 +91,8 @@ const Index: NextPage<{ kits: KitData[] }> = (props) => {
                                         {event.hosts && (
                                             <ul className={classes.eventHosts}>
                                                 <Icon name="speech" title="Hosts" size={18} />{' '}
-                                                {event.hosts?.map((host) => (
-                                                    <li>{host}</li>
+                                                {event.hosts?.map((host, i) => (
+                                                    <li key={i}>{host}</li>
                                                 ))}
                                             </ul>
                                         )}

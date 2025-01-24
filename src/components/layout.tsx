@@ -119,7 +119,7 @@ const Layout = (props: LayoutProps) => {
                                 </>
                             )}
                             {SOCIALS.map((social) => (
-                                <li>
+                                <li key={social.title}>
                                     <Icon name={social.icon} title={social.title} size={20} />{' '}
                                     <Link href={social.url} noStyle>
                                         {social.title}
