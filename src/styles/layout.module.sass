@@ -15,7 +15,9 @@ $breakpoint: 768px
     padding: 0 4rem 8rem
 
     @media(max-width: #{$breakpoint})
-        padding-bottom: 0
+        padding: 0 2rem 4rem
+        display: flex
+        flex-direction: column
 
 .page .main
     $spacing: 320px
@@ -25,7 +27,7 @@ $breakpoint: 768px
 
     @media(max-width: #{$breakpoint})
         width: 100%
-        padding: 0 3rem 4rem
+        padding: 0 2rem
 
 .page .header
     position: fixed
@@ -34,7 +36,7 @@ $breakpoint: 768px
 
     @media(max-width: #{$breakpoint})
         position: static
-        padding-top: 5rem
+        padding-top: 1rem
 
 .logo
     width: 220px
@@ -44,13 +46,27 @@ $breakpoint: 768px
     position: absolute
     top: 0
     right: 0
-    padding: 1.5rem 2rem
+    padding: 0.25em 2rem 0
     list-style: none
     font-size: 1.2rem
     font-family: var(--font-display)
 
     li
-        display: inline
+        display: inline-block
+        padding: 0.75em 0 0
 
         &:not(:last-child)
             margin-right: 2rem
+
+    @media(max-width: #{$breakpoint})
+        position: static
+        order: -1
+        padding: 0
+        margin: 0.5rem 0 0 0.75rem
+        font-size: 1rem
+        text-align: right
+
+.nav-icon
+    $size: 1.4em
+    width: $size
+    height: $size

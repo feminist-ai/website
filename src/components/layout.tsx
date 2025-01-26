@@ -105,13 +105,23 @@ const Layout = (props: LayoutProps) => {
                             {isPage && (
                                 <>
                                     <li>
-                                        <Icon name="folder" title="Kits" size={20} />{' '}
+                                        <Icon
+                                            name="folder"
+                                            title="Kits"
+                                            size={20}
+                                            className={classes.navIcon}
+                                        />{' '}
                                         <Link href="/#kits" noStyle>
                                             Kits
                                         </Link>
                                     </li>
                                     <li>
-                                        <Icon name="calendar" title="Events" size={20} />{' '}
+                                        <Icon
+                                            name="calendar"
+                                            title="Events"
+                                            size={20}
+                                            className={classes.navIcon}
+                                        />{' '}
                                         <Link href="/#events" noStyle>
                                             Events
                                         </Link>
@@ -120,7 +130,12 @@ const Layout = (props: LayoutProps) => {
                             )}
                             {SOCIALS.map((social) => (
                                 <li key={social.title}>
-                                    <Icon name={social.icon} title={social.title} size={20} />{' '}
+                                    <Icon
+                                        name={social.icon}
+                                        title={social.title}
+                                        size={20}
+                                        className={classes.navIcon}
+                                    />{' '}
                                     <Link href={social.url} noStyle>
                                         {social.title}
                                     </Link>
