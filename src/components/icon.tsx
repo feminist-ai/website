@@ -14,6 +14,8 @@ import iconGitHub from '../images/icons/github.png'
 import iconWarning from '../images/icons/warning.png'
 import iconCalendar from '../images/icons/calendar.png'
 import iconFolder from '../images/icons/folder.png'
+import iconBook from '../images/icons/book.png'
+import iconImage from '../images/icons/image.png'
 
 const ICONS: Record<string, StaticImageData> = {
     pin: iconPin,
@@ -26,6 +28,8 @@ const ICONS: Record<string, StaticImageData> = {
     warning: iconWarning,
     calendar: iconCalendar,
     folder: iconFolder,
+    book: iconBook,
+    image: iconImage,
 }
 
 interface IconProps {

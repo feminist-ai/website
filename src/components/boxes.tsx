@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import clsx from 'clsx'
 
 import { OptionalLink } from './typography'
@@ -41,19 +42,28 @@ export const Grid = (props: GridProps) => {
 }
 
 export const Card = (props: CardProps) => {
-    const { title, url, icon, color, Component = 'div', className, children } = props
+    const { title, url, icon, image, color, Component = 'div', className, children } = props
     return (
         <Component
             className={clsx(classes.card, className)}
             style={{ '--color-card': color } as React.CSSProperties}
         >
-            <OptionalLink href={url} noStyle>
-                <h3 className={classes.cardTitle}>
-                    {icon && <Icon name={icon} size={16} spaced />}
-                    {title}
-                </h3>
-                {children && <p>{children}</p>}
-            </OptionalLink>
+            {image && (
+                <header className={classes.cardImage}>
+                    <OptionalLink href={url} noStyle tabIndex="-1">
+                        <Image src={image} fill alt={title} />
+                    </OptionalLink>
+                </header>
+            )}
+            <div className={classes.cardContent}>
+                <OptionalLink href={url} noStyle>
+                    <h3 className={classes.cardTitle}>
+                        {icon && <Icon name={icon} size={14} spaced />}
+                        {title}
+                    </h3>
+                    {children && <p>{children}</p>}
+                </OptionalLink>
+            </div>
         </Component>
     )
 }

@@ -1,4 +1,5 @@
 $breakpoint: 768px
+$breakpoint-md: 1024px
 
 .grid
     display: grid
@@ -6,7 +7,7 @@ $breakpoint: 768px
     grid-gap: 2.5rem
     margin: 3rem 0
 
-    @media(max-width: #{$breakpoint})
+    @media(max-width: #{$breakpoint-md})
         grid-template-columns: 100%
 
 .card,
@@ -14,15 +15,13 @@ $breakpoint: 768px
     --color-card: var(--color-theme)
     box-shadow: var(--box-shadow)
     background: var(--color-bg)
-    padding: 1.5rem
-    font-size: 1.5rem
 
 .card-title,
 .infobox-title,
 .infobox h3
     font-weight: bold
     font-size: 1.7rem
-    margin-bottom: 0.5rem
+    margin-bottom: 0.2em
     padding-top: 0 !important
 
 .card,
@@ -43,3 +42,26 @@ $breakpoint: 768px
     margin-top: 3rem
     font-size: 0.9em
     text-align: left !important
+
+.card
+    line-height: 1.4
+
+.card-title
+    font-size: 1.6rem
+
+.card-content
+    padding: 1.25rem
+    font-size: 1.5rem
+
+    p
+        opacity: 0.8
+
+.card-image
+    position: relative
+    width: 100%
+    height: 0
+    padding-bottom: 56.25% // default: 16:9
+    background: var(--color-subtle)
+
+    img
+        object-fit: cover
