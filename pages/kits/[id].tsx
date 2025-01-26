@@ -6,7 +6,7 @@ import RemarkGfm from 'remark-gfm'
 import RehypeTitleFigure from 'rehype-title-figure'
 
 import Layout from '../../src/components/layout'
-import { H1, Link } from '../../src/components/typography'
+import { H1, Link, OptionalLink } from '../../src/components/typography'
 import Icon from '../../src/components/icon'
 import classes from '../../src/styles/kit.module.sass'
 import { getKit, getKitIds } from '../../src/content'
@@ -18,6 +18,11 @@ import mdxComponents from '../../src/mdx-components'
 interface KitProps {
     mdxSource: any
     data: KitData
+}
+
+interface SidebarProps {
+    authors: KitData['authors']
+    toc: KitData['toc']
 }
 
 interface ContextType {
@@ -46,32 +51,51 @@ export const getStaticPaths = async () => {
     return { paths: getKitIds(), fallback: false }
 }
 
-const ToC = (props: { toc: KitData['toc'] }) => {
-    return !props.toc ? null : (
+const Sidebar = (props: SidebarProps) => {
+    const { toc, authors } = props
+    return (
         <nav>
-            <h3 className={classes.tocTitle}>Table of Contents</h3>
-            <ul className={classes.toc}>
-                {props.toc.map(([text, url]) => (
-                    <li key={url}>
-                        <Link href={url} noStyle>
-                            {text}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
+            {toc && (
+                <section>
+                    <h3 className={classes.sidebarTitle}>Table of Contents</h3>
+                    <ul className={classes.sidebar}>
+                        {toc.map(([text, url]) => (
+                            <li key={url}>
+                                <Link href={url} noStyle>
+                                    {text}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            )}
+            {authors && (
+                <section>
+                    <h3 className={classes.sidebarTitle}>Author{authors.length > 1 && 's'}</h3>
+                    <ul className={classes.sidebar}>
+                        {authors.map(([text, url]) => (
+                            <li key={url}>
+                                <OptionalLink href={url} noStyle>
+                                    {text}
+                                </OptionalLink>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            )}
         </nav>
     )
 }
 
 const Kit = (props: KitProps) => {
-    const { title, color, icon, toc } = props.data
+    const { title, color, icon, toc, authors } = props.data
     return (
         <Layout
             Component="article"
             isPage
             className={classes.root}
             style={{ '--color-theme': color } as React.CSSProperties}
-            header={<ToC toc={toc} />}
+            header={<Sidebar toc={toc} authors={authors} />}
         >
             <header className={classes.header}>
                 <H1>

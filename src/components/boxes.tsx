@@ -43,6 +43,7 @@ export const Grid = (props: GridProps) => {
 
 export const Card = (props: CardProps) => {
     const { title, url, icon, image, color, Component = 'div', className, children } = props
+    const domain = !url || !url.startsWith('https://') ? null : url.split('/')[2]
     return (
         <Component
             className={clsx(classes.card, className)}
@@ -57,11 +58,14 @@ export const Card = (props: CardProps) => {
             )}
             <div className={classes.cardContent}>
                 <OptionalLink href={url} noStyle>
-                    <h3 className={classes.cardTitle}>
-                        {icon && <Icon name={icon} size={14} spaced />}
-                        {title}
-                    </h3>
-                    {children && <p>{children}</p>}
+                    <article>
+                        <h3 className={classes.cardTitle}>
+                            {icon && <Icon name={icon} size={14} spaced />}
+                            {title}
+                        </h3>
+                        {children && <p>{children}</p>}
+                    </article>
+                    {domain && <footer className={classes.cardFooter}>{domain}</footer>}
                 </OptionalLink>
             </div>
         </Component>

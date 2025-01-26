@@ -11,6 +11,7 @@ export interface KitData {
     color?: string
     icon?: string
     toc?: [string, string][]
+    authors?: [string, string?][]
 }
 
 export function getKitIds() {
