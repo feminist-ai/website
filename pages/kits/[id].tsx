@@ -73,8 +73,8 @@ const Sidebar = (props: SidebarProps) => {
                 <section>
                     <h3 className={classes.sidebarTitle}>Author{authors.length > 1 && 's'}</h3>
                     <ul className={classes.sidebar}>
-                        {authors.map(([text, url]) => (
-                            <li key={url}>
+                        {authors.map(([text, url], i) => (
+                            <li key={i}>
                                 <OptionalLink href={url} noStyle>
                                     {text}
                                 </OptionalLink>
