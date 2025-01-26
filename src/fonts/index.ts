@@ -42,3 +42,15 @@ export const geist = localFont({
         },
     ],
 })
+
+export const jetbrainsMono = localFont({
+    variable: '--font-code',
+    fallback: ['Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+    src: [
+        {
+            path: './jetbrainsmono-medium.woff2',
+            weight: '500',
+            style: 'normal',
+        },
+    ],
+})

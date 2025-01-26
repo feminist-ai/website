@@ -29,7 +29,24 @@ Labore cupidatat adipisicing sit fugiat incididunt. Labore tempor officia sit du
 2. Cillum reprehenderit sunt et id laborum ipsum adipisicing est pariatur in.
 3. Cupidatat elit irure sint.
 
-Labore cupidatat adipisicing sit fugiat incididunt. Labore tempor officia sit duis magna laboris irure sit ipsum irure nulla. Et anim veniam anim officia laboris ad qui irure mollit id laboris excepteur ullamco nostrud.
+Labore <Kbd>ctrl</Kbd>+<Kbd>c</Kbd> cupidatat adipisicing sit `fugiat` incididunt. Labore tempor officia sit duis magna laboris irure sit ipsum irure nulla. Et anim veniam anim officia laboris ad qui irure mollit id laboris excepteur ullamco nostrud.
+
+```python
+### This is a code example
+import spacy
+from spacy_layout import spaCyLayout
+
+nlp = spacy.blank("en")
+layout = spaCyLayout(nlp)
+
+# Process a document and create a spaCy Doc object
+doc = layout("./starcraft.pdf")
+
+# The text-based contents of the document
+print(doc.text)
+# Document layout including pages and page sizes
+print(doc._.layout)
+```
 
 | &nbsp; | Global<br />Carbon<br />Credits | Americas<br />Crude<br />Oil | Asia<br />Steel<br />Rebar |
 | --- | ---: | ---: | ---: |
@@ -40,19 +57,34 @@ Labore cupidatat adipisicing sit fugiat incididunt. Labore tempor officia sit du
 | **Evaluation Examples** | 211 | 200 | 345 |
 | **Data Development Time** | ~15h | ~15h | ~15h |
 
-## Downloads {id="downloads"}
+## Introduction to Prodigy {id="prodigy"}
 
-Labore cupidatat adipisicing sit fugiat incididunt. Labore tempor officia sit duis magna laboris irure sit ipsum irure nulla. Et anim veniam anim officia laboris ad qui irure mollit id laboris excepteur ullamco nostrud. Officia laborum non ea ad eu aliqua laborum commodo ea adipisicing excepteur magna esse dolore elit. Cupidatat elit irure sint. Qui sint aliquip veniam dolor culpa ut nulla quis.
+Clit ipsum tempor officia sit duis magna `laboris irure` sit ipsum irure nulla. Ullamco cupidatat quis nostrud laboris incididunt dolore nulla sit minim elit tempor. Anim proident ad eiusmod sit.
 
-<Infobox title="Clit ipsum" icon="warning">
+<Infobox title="Get your Prodigy license key" icon="warning">
 
-Magna proident do veniam pariatur sunt labore amet quis. Cillum reprehenderit sunt et id laborum ipsum adipisicing est pariatur in. Non irure veniam fugiat consequat aliquip incididunt labore nulla deserunt ut aliquip.
+To install and use Prodigy, you will need a license key. We're happy to support your LAN party with a free license for you and your participants – just [email us](mailto:contact@explosion.ai?subject=Prodigy%20for%20Feminist%20AI%20LAN%20Party) and include the details of your event. Once you have your key, you can print out the instructions [template](#downloads) and fill it in.
 
 </Infobox>
 
+```bash
+### Install Prodigy
+$ pip install prodigy --extra-index-url https://XXXX-XXXX-XXXX-XXXX@download.prodi.gy
+```
+
+Ullamco cupidatat quis nostrud laboris incididunt dolore nulla sit minim elit tempor. Anim proident ad eiusmod sit. Incididunt duis eiusmod mollit. Fugiat qui ut culpa voluptate incididunt voluptate. Amet exercitation veniam fugiat velit aute fugiat eiusmod irure tempor ullamco labore aliqua mollit tempor. Laborum amet Lorem est. In occaecat esse aliquip adipisicing veniam ea non.
+
+## Downloads {id="downloads"}
+
+Labore cupidatat adipisicing sit fugiat incididunt. Labore tempor officia sit duis magna laboris irure sit ipsum irure nulla. Et anim veniam anim officia laboris.
+
+<Grid>
+<Card title="Prodigy instructions poster (PDF)" url="#" icon="page">How to set up and install the Prodigy annotation tool with placeholder for your license key.</Card>
+</Grid>
+
 ## Resources {id="resources"}
 
-Labore cupidatat adipisicing sit fugiat incididunt. Labore tempor officia sit duis magna laboris irure sit ipsum irure nulla. Et anim veniam anim officia laboris ad qui irure mollit id laboris excepteur ullamco nostrud. Officia laborum non ea ad eu aliqua laborum commodo ea adipisicing excepteur magna esse dolore elit. Cupidatat elit irure sint. Qui sint aliquip veniam dolor culpa ut nulla quis.
+Labore cupidatat adipisicing sit fugiat incididunt. Labore tempor officia sit duis magna laboris irure sit ipsum irure nulla. Et anim veniam anim officia laboris ad qui irure mollit id laboris.
 
 <Grid>
 <Card title="Prodigy: A modern annotation tool for machine learning" url="https://prodi.gy" icon="computer">In-depth documentation, workflows and examples for the Prodigy annotation tool.</Card>

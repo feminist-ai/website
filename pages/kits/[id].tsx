@@ -12,6 +12,7 @@ import classes from '../../src/styles/kit.module.sass'
 import { getKit, getKitIds } from '../../src/content'
 import type { KitData } from '../../src/content'
 import RemarkCustomAttrs from '../../src/plugins/remarkCustomAttrs.mjs'
+import RemarkCodeBlocks from '../../src/plugins/remarkCodeBlocks.mjs'
 import mdxComponents from '../../src/mdx-components'
 
 interface KitProps {
@@ -32,6 +33,7 @@ export async function getStaticProps(context: ContextType) {
                 // @ts-ignore
                 [RemarkSmartypants, { dashes: 'oldschool' }],
                 RemarkCustomAttrs,
+                RemarkCodeBlocks,
             ],
             // @ts-ignore
             rehypePlugins: [RehypeTitleFigure],

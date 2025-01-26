@@ -10,6 +10,14 @@ $breakpoint: 768px
     --color-border: var(--color-text)
     --color-theme: var(--color-highlight)
     --focus-outline: 1px dotted var(--color-text)
+    // Syntax highlighting
+    --color-syntax-comment: #778090
+    --color-syntax-keyword: #ff648e
+    --color-syntax-number: #ae81ff
+    --color-syntax-attr: #a6e22e
+    --color-syntax-punct: #f8f8f2
+    --color-syntax-value: #fedf45
+    --color-syntax-regex: #fd971f
     // Sizing
     --width-content: 1100px
     --width-page: 700px
@@ -86,3 +94,64 @@ body
 
     @media(max-width: #{$breakpoint})
         padding: 15px
+
+// Syntax Highlighting
+
+[class*="language-"]
+    .token.comment,
+    .token.prolog,
+    .token.doctype,
+    .token.cdata
+        color: var(--color-syntax-comment)
+
+    .namespace
+        opacity: 0.7
+
+    .token.property,
+    .token.tag,
+    .token.constant,
+    .token.symbol,
+    .token.deleted,
+    .token.keyword
+        color: var(--color-syntax-keyword)
+
+    .token.boolean,
+    .token.number
+        color: var(--color-syntax-number)
+
+    .token.selector,
+    .token.attr-name,
+    .token.char,
+    .token.builtin,
+    .token.inserted
+        color: var(--color-syntax-attr)
+
+    .token.punctuation,
+    .token.operator,
+    .token.entity,
+    .token.url,
+    .language-css .token.string,
+    .style .token.string,
+    .token.variable
+        color: var(--color-syntax-punct)
+
+    .token.atrule,
+    .token.attr-value,
+    .token.function,
+    .token.string
+        color: var(--color-syntax-value)
+
+    .token.regex,
+    .token.important
+        color: var(--color-syntax-regex)
+
+    .token.important,
+    .token.bold
+        font-weight: bold
+
+    .token.italic
+        font-style: italic
+
+.language-ini
+    .token.attr-name
+        color: var(--color-bg)

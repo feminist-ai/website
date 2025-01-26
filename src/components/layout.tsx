@@ -8,7 +8,7 @@ import clsx from 'clsx'
 import Icon from './icon'
 import { Link } from './typography'
 import logo from '../images/logo.png'
-import { departureMono, geist } from '../fonts'
+import { departureMono, geist, jetbrainsMono } from '../fonts'
 import classes from '../styles/layout.module.sass'
 import { META, SOCIALS } from '../../content'
 
@@ -79,6 +79,7 @@ const Layout = (props: LayoutProps) => {
                         classes.root,
                         departureMono.variable,
                         geist.variable,
+                        jetbrainsMono.variable,
                         className,
                         { [classes.page]: isPage }
                     )}

@@ -1,5 +1,6 @@
 import { H2, H3, H4, H5, H6, Link, Mark, Ol, Ul, Table } from './components/typography'
 import { Infobox, Card, Grid } from './components/boxes'
+import { Code, Pre, Kbd } from './components/code'
 
 const mdxComponents = {
     a: Link,
@@ -10,12 +11,15 @@ const mdxComponents = {
     h6: H6,
     ol: Ol,
     ul: Ul,
+    code: Code,
+    pre: Pre,
     table: Table,
     Table,
     Mark,
     Infobox,
     Card,
     Grid,
+    Kbd,
 }
 
 export default mdxComponents

@@ -1,0 +1,99 @@
+.pre
+    --padding-x: 1.25em
+    --padding-y: 1.35em
+
+    display: block
+    position: relative
+    background: var(--color-text) url(../images/texture_dark.jpg)
+    background-size: cover
+    box-shadow: var(--box-shadow)
+    color: var(--color-bg)
+    overflow: auto
+    overscroll-behavior-x: none
+    width: 100%
+    max-width: 100%
+    white-space: pre
+    direction: ltr
+    margin-bottom: 4rem
+    padding: var(--padding-y) 0
+    border-radius: var(--border-radius)
+    word-spacing: normal
+    word-break: normal
+    word-wrap: normal
+    -moz-tab-size: 4
+    -o-tab-size: 4
+    tab-size: 4
+    -webkit-hyphens: none
+    -moz-hyphens: none
+    -ms-hyphens: none
+    hyphens: none
+
+    code
+        line-height: 1.6
+
+.wrap
+    white-space: pre-wrap
+
+.has-title
+    padding-top: calc(var(--padding-y) / 2)
+
+.line
+    padding: 0 var(--padding-x)
+
+.highlight
+    background: var(--color-dark-contrast)
+    min-width: 100%
+
+.title
+    padding: calc(var(--padding-y) / 3.5) var(--padding-x) calc(var(--padding-y) / 1.5) !important
+    position: sticky
+    top: 0
+    left: 0
+
+    span
+        display: inline-block
+        background: var(--color-bg)
+        color: var(--color-text)
+        font-family: var(--font-primary)
+        font-weight: bold
+        font-size: 1.5rem
+        line-height: 1
+        padding: 0.4em 0.65em
+        transform: rotate(-1.25deg) translateX(-1rem)
+        opacity: 0.95
+
+.inline-code,
+.kbd
+    font-family: var(--font-code)
+    font-weight: 500
+    font-variant-ligatures: none
+    color: inherit !important
+
+.inline-code
+    font-size: 85%
+
+    *:not(pre) > &
+        white-space: nowrap
+        color: var(--color-text)
+        background-color: var(--color-subtle)
+        padding: 0.15rem 0.75rem 0.1rem
+        box-decoration-break: clone
+
+    & > [data-prompt]:before
+        content: attr(data-prompt) " "
+        display: inline-block
+        vertical-align: middle
+        opacity: 0.6
+
+.kbd
+    font-size: 80%
+    background: var(--color-subtle)
+    box-shadow: inset 0 -1px 0 var(--color-text)
+    border: 1px solid var(--color-text)
+    border-radius: 3px
+    text-transform: uppercase
+    white-space: nowrap
+    box-decoration-break: clone
+    padding: 0.1rem 0.35rem
+    margin: 0 0.15rem
+    opacity: 0.7
