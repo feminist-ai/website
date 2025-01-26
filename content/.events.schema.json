@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "events": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "date",
+                    "event",
+                    "location"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "pattern": "^\\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$",
+                        "title": "Date of event (YYYY-MM-DD)"
+                    },
+                    "event": {
+                        "type": "string",
+                        "title": "Name of the conference etc."
+                    },
+                    "location": {
+                        "type": "string",
+                        "title": "Location in 'City, Country' format or 'City, State, US' for US."
+                    },
+                    "url": {
+                        "type": "string",
+                        "pattern": "^((http(s?))://|/)",
+                        "title": "Event URL"
+                    },
+                    "hosts": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "title": "List of host names, e.g. persons or organizations"
+                    }
+                }
+            }
+        }
+    }
+}

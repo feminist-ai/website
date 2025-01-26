@@ -1,4 +1,5 @@
 {
+    "$schema": "./.events.schema.json",
     "events": [
         {
             "date": "2025-04-23",

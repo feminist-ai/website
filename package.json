@@ -9,8 +9,10 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint",
-        "export": "npm run build && next export"
+        "lint": "next lint && npm run validate",
+        "export": "npm run build && next export",
+        "validate:events": "./node_modules/ajv-cli/dist/index.js -s content/.events.schema.json -d content/events.json --strict false --verbose --all-errors",
+        "validate": "npm run validate:events"
     },
     "dependencies": {
         "@mdx-js/loader": "^3.0.0",
