@@ -41,8 +41,20 @@
     padding: 0 var(--padding-x)
 
 .highlight
-    background: var(--color-dark-contrast)
     min-width: 100%
+    position: relative
+
+    &:after
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background: var(--color-theme)
+        mix-blend-mode: screen
+        opacity: 0.3
+        z-index: 0
 
 .title
     padding: calc(var(--padding-y) / 3.5) var(--padding-x) calc(var(--padding-y) / 1.5) !important
