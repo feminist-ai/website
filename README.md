@@ -26,14 +26,16 @@ The website and repo is designed to make it as easy as possible to make changes 
 
 ### Markdown elements
 
-The website supports regular Markdown, as well as several custom elements and enhanced syntax. Custom MDX elements can be used like regular HTML elements and their names are capitalized.
+The website supports regular Markdown, as well as several custom elements and enhanced syntax. Custom MDX elements can be used like regular HTML / JSX elements and their names are capitalized.
 
 #### Headlines
 
-Markdown headlines can specify the attribute `id` in curly braces, which is used as the anchor link.
+Markdown headlines can specify the attribute `id` in curly braces, which is used as the anchor link. The anchor link can also be referenced in the [table of contents](#frontmatter) of a page.
 
 ```markdown
 ## This is a headline {id="headline"}
+
+### This is a sub-headline {id="sub-headline"}
 ```
 
 #### Code blocks
@@ -47,26 +49,59 @@ import spacy
 ```
 ````
 
-#### Infoboxes
+To highlight specific lines of code, you can set the attribute `highlight` in curly braces in the title (with or without a title text). Line numbers are 1-indexed and comma-separated.
 
-Infoboxes let you highlight important notes and comments. The `<Infobox />` element can take an optional `title` and `icon`.
+````markdown
+```python
+### This is code with line highlights {highlight="2,3"}
+import spacy
+nlp = spacy.load("en_core_web_sm")
+doc = nlp("Hello world!")
+```
+````
+
+#### Custom elements
+
+| Element | Attributes | Use case |
+| --- | --- | --- |
+| `<Infobox />` | `title` (str), [`icon`](src/images/icons) (str) | Important notes, additional info, warnings |
+| `<Grid />` | `columns` (int, default `2`) | Multi-column grid, used in combination with `<Card />` |
+| `<Card />` | `title` (str), `url` (str), [`icon`](src/images/icons) (str), [`image`](public/images) (str) | Resources, further links, downloads |
+| `<Mark />` | | Highlighted text |
+| `<Kbd />` | | Keyboard shortcuts |
 
 ```markdown
+This is <Mark>highlighted</Mark>. To copy, press <Kbd>ctrl</Kbd>+<Kbd>c</Kbd>.
+
 <Infobox title="Important note" icon="warning">
 
 This is an infobox with text, a title and an icon.
 
 </Infobox>
-```
 
-#### Cards and grid
-
-Card grids are used to display resources like further links and downloadable templates. The individual `<Card />` elements are wrapped in a `<Grid />` and can take a `title`, a `url` and an optional `icon` and `image` (path in the `public` directory).
-
-```markdown
 <Grid>
 <Card title="This is a resource" url="https://explosion.ai" image="/images/image.jpg" icon="book">Some text about the resource here.</Card>
+<Card title="This is a resource" url="https://explosion.ai" image="/images/image.jpg" icon="book">Some text about the resource here.</Card>
 </Grid>
+```
+
+#### Frontmatter (page meta data)
+
+At the top of a page, e.g. [`kits/data.mdx`](content/kits/data.mdx), **YAML-formatted meta data** is provided in the so-called frontmatter block, wrapped in `---`. This includes the page title and description, as well as a theme color and [icon](src/images/icons), and an optional table of contents and author information. The anchor links in the table of contents can be defined as IDs of the respective [headlines](#headlines).
+
+```yaml
+---
+title: This is a page title
+description: "This is a description shown in the overview and site meta."
+color: '#bc85ff'
+icon: data
+toc:
+  - ['This is a section', '#anchor']
+  - ['This is another section', '#another-anchor']
+authors:
+  - ['Author Name', 'https://author-url.com']
+  - ['Another Author']
+---
 ```
 
 ### Running the site locally
