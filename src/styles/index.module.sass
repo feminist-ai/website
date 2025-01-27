@@ -8,12 +8,12 @@ $breakpoint-md: 1024px
     max-width: 100%
     display: block
     margin: 0 auto
-    padding: 2rem 0 4rem
+    padding: 2rem 0 0
 
     @media(max-width: #{$breakpoint})
         width: 250px
         margin: 0 auto
-        padding: 0.5rem 0 2.5rem
+        padding: 0.5rem 0 0
 
 .intro
     font-size: 2.2rem
@@ -21,6 +21,9 @@ $breakpoint-md: 1024px
     text-align: center
     width: 550px
     max-width: 100%
+
+    @media(max-width: #{$breakpoint})
+        font-size: 1.8rem
 
 .section
     display: grid
