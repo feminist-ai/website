@@ -11,11 +11,11 @@ import { getAllKits } from '../src/content'
 import type { KitData } from '../src/content'
 import classes from '../src/styles/index.module.sass'
 import { META, EVENTS } from '../content'
-// import generateRssFeed from '../src/rss'
+import generateRssFeed from '../src/rss'
 
 export async function getStaticProps() {
     const kits = getAllKits()
-    // generateRssFeed(data)
+    generateRssFeed(kits)
     return { props: { kits } }
 }
 
