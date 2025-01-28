@@ -1,5 +1,5 @@
 import { H2, H3, H4, H5, H6, Link, Mark, Ol, Ul, Table } from './components/typography'
-import { Infobox, Card, Grid } from './components/boxes'
+import { Infobox, Card, Grid, Gallery } from './components/boxes'
 import { Code, Pre, Kbd } from './components/code'
 
 const mdxComponents = {
@@ -19,6 +19,7 @@ const mdxComponents = {
     Infobox,
     Card,
     Grid,
+    Gallery,
     Kbd,
 }
 

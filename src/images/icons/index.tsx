@@ -13,6 +13,10 @@ import iconFolder from './folder.png'
 import iconBook from './book.png'
 import iconImage from './image.png'
 import iconPage from './page.png'
+import iconScissors from './scissors.png'
+import iconHeart from './heart.png'
+import iconCopyright from './copyright.png'
+import iconLicense from './license.png'
 
 const ICONS: Record<string, StaticImageData> = {
     pin: iconPin,
@@ -28,6 +32,10 @@ const ICONS: Record<string, StaticImageData> = {
     book: iconBook,
     image: iconImage,
     page: iconPage,
+    scissors: iconScissors,
+    heart: iconHeart,
+    copyright: iconCopyright,
+    license: iconLicense,
 }
 
 export default ICONS

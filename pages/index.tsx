@@ -33,6 +33,7 @@ const Index: NextPage<{ kits: KitData[] }> = (props) => {
                     loading="eager"
                 />
             }
+            sourceFile=""
         >
             <p className={classes.intro}>
                 Clit ipsum aute est ullamco velit ad commodo laborum sint duis dolor ipsum

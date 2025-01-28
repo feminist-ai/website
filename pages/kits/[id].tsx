@@ -88,7 +88,7 @@ const Sidebar = (props: SidebarProps) => {
 }
 
 const Kit = (props: KitProps) => {
-    const { title, color, icon, toc, authors } = props.data
+    const { id, title, color, icon, toc, authors } = props.data
     return (
         <Layout
             Component="article"
@@ -96,6 +96,7 @@ const Kit = (props: KitProps) => {
             className={classes.root}
             style={{ '--color-theme': color } as React.CSSProperties}
             header={<Sidebar toc={toc} authors={authors} />}
+            sourceFile={`content/kits/${id}.mdx`}
         >
             <header className={classes.header}>
                 <H1>

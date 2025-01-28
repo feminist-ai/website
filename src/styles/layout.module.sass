@@ -11,10 +11,10 @@ $breakpoint: 768px
     width: var(--width-layout)
     max-width: 100%
     margin: 0 auto
-    padding: 0 4rem 8rem
+    padding: 0 4rem 4rem
 
     @media(max-width: #{$breakpoint})
-        padding: 0 2rem 4rem
+        padding: 0 2rem 2rem
         display: flex
         flex-direction: column
 
@@ -22,7 +22,7 @@ $breakpoint: 768px
     $spacing: 320px
     width: calc(var(--width-page) + #{$spacing})
     margin: 0
-    padding: 0 6rem 8rem $spacing
+    padding: 0 6rem 2rem $spacing
 
     @media(max-width: #{$breakpoint})
         width: 100%
@@ -69,3 +69,20 @@ $breakpoint: 768px
     $size: 1.4em
     width: $size
     height: $size
+
+.footer
+    padding: 2rem 0
+    text-align: center
+    font-size: 1.3rem
+
+    ul
+        list-style: none
+
+        li
+            display: inline-block
+
+            &:not(:last-child)
+                margin-right: 2rem
+
+    a
+        opacity: 0.6

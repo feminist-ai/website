@@ -61,8 +61,16 @@ $breakpoint-md: 1024px
         display: contents
 
     p
+        display: contents
+        font-size: inherit !important
+
+    div
         opacity: 0.8
         margin-bottom: 0
+        font-size: inherit
+
+    .card-has-image &
+        height: auto
 
 .card-footer
     font-size: 1.25rem
@@ -73,8 +81,30 @@ $breakpoint-md: 1024px
     position: relative
     width: 100%
     height: 0
-    padding-bottom: 56.25% // default: 16:9
+    padding-bottom: 56.25% // 16:9
     background: var(--color-subtle)
 
     img
         object-fit: cover
+
+.gallery
+    margin-bottom: 5rem
+
+.gallery-item
+    padding: 0.75rem
+    box-shadow: var(--box-shadow)
+
+.gallery-image
+    position: relative
+    width: 100%
+    height: 0
+    padding-bottom: 75% // 4:3
+
+    img
+        object-fit: cover
+
+.gallery-caption
+    font-size: 1.3rem
+    opacity: 0.7
+    padding-top: 0.75rem
+    text-align: center

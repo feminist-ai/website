@@ -18,6 +18,7 @@ interface LayoutProps {
     metaTitle?: string
     description?: string
     image?: string
+    sourceFile?: string
     addSlogan?: boolean
     isPage?: boolean
     header?: React.ReactNode
@@ -33,6 +34,7 @@ const Layout = (props: LayoutProps) => {
         description,
         image,
         header,
+        sourceFile = null,
         addSlogan = true,
         isPage = false,
         className,
@@ -46,7 +48,17 @@ const Layout = (props: LayoutProps) => {
     const pageTitle = addSlogan ? `${pageTitlePrefix} · ${META.slogan}` : pageTitlePrefix
     const pageDescription = description || META.description
     const pageImage = `https://${META.domain}${image || '/social.jpg'}`
-    const pageUrl = `https://${META.domain}${router.asPath}`
+    //const pageUrl = `https://${META.domain}${router.asPath}`
+    const footer = [
+        { title: META.title, url: '/', icon: 'copyright' },
+        { title: META.license, url: META.licenseUrl, icon: 'license' },
+    ]
+    if (sourceFile != null)
+        footer.push({
+            title: 'Contribute to this page',
+            url: `${META.repo}/tree/main/${sourceFile}`,
+            icon: 'heart',
+        })
     return (
         <>
             <Head>
@@ -144,14 +156,20 @@ const Layout = (props: LayoutProps) => {
                             ))}
                         </ul>
 
-                        <Component className={classes.content}>
-                            {/* {showTitle && !!title && <H1>{title}</H1>}
-                        {subTitle && <header className={classes.subTitle}>{subTitle}</header>} */}
-                            {children}
-                        </Component>
-
-                        <footer className={classes.footer}></footer>
+                        <Component className={classes.content}>{children}</Component>
                     </div>
+                    <footer className={classes.footer}>
+                        <ul>
+                            {footer.map((item) => (
+                                <li key={item.url}>
+                                    {item.icon && <Icon name={item.icon} size={16} spaced />}
+                                    <Link href={item.url} noStyle>
+                                        {item.title}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </footer>
                 </main>
             </PlausibleProvider>
         </>

@@ -67,10 +67,11 @@ doc = nlp("Hello world!")
 | `<Infobox />` | `title` (str), [`icon`](src/images/icons) (str) | Important notes, additional info, warnings |
 | `<Grid />` | `columns` (int, default `2`) | Multi-column grid, used in combination with `<Card />` |
 | `<Card />` | `title` (str), `url` (str), [`icon`](src/images/icons) (str), [`image`](public/images) (str) | Resources, further links, downloads |
+| `<Gallery />` | `images` (list), `columns` (int, default `3`) | Photo or image gallery. Images can be a string path or a tuple of `[path, caption]`. |
 | `<Mark />` | | Highlighted text |
 | `<Kbd />` | | Keyboard shortcuts |
 
-```markdown
+```mdx
 This is <Mark>highlighted</Mark>. To copy, press <Kbd>ctrl</Kbd>+<Kbd>c</Kbd>.
 
 <Infobox title="Important note" icon="warning">
@@ -83,6 +84,12 @@ This is an infobox with text, a title and an icon.
 <Card title="This is a resource" url="https://explosion.ai" image="/images/image.jpg" icon="book">Some text about the resource here.</Card>
 <Card title="This is a resource" url="https://explosion.ai" image="/images/image.jpg" icon="book">Some text about the resource here.</Card>
 </Grid>
+
+<Gallery images={[
+  ["/images/photo1.jpg", "This is a caption"],
+  "/images/photo2.jpg",
+  "/images/photo3.jpg"
+]} />
 ```
 
 #### Frontmatter (page meta data)

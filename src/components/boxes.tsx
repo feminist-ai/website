@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import clsx from 'clsx'
 
-import { OptionalLink } from './typography'
+import { Link, OptionalLink } from './typography'
 import Icon from './icon'
 import classes from '../styles/boxes.module.sass'
 
@@ -29,6 +29,11 @@ interface InfoboxProps {
     icon?: string
 }
 
+interface GalleryProps {
+    images: ([string, string?] | string)[]
+    columns?: number
+}
+
 export const Grid = (props: GridProps) => {
     const { columns = 2, className, children } = props
     return (
@@ -46,7 +51,7 @@ export const Card = (props: CardProps) => {
     const domain = !url || !url.startsWith('https://') ? null : url.split('/')[2]
     return (
         <Component
-            className={clsx(classes.card, className)}
+            className={clsx(classes.card, className, { [classes.cardHasImage]: !!image })}
             style={{ '--color-card': color } as React.CSSProperties}
         >
             {image && (
@@ -63,7 +68,7 @@ export const Card = (props: CardProps) => {
                             {icon && <Icon name={icon} size={14} spaced />}
                             {title}
                         </h3>
-                        {children && <p>{children}</p>}
+                        {children && <div>{children}</div>}
                     </article>
                     {domain && <footer className={classes.cardFooter}>{domain}</footer>}
                 </OptionalLink>
@@ -83,3 +88,26 @@ export const Infobox = (props: InfoboxProps) => (
         {props.children}
     </figure>
 )
+
+export const Gallery = (props: GalleryProps) => {
+    const { columns = 3, images } = props
+    return (
+        <Grid columns={columns} className={classes.gallery}>
+            {images.map((item, i) => {
+                const [image, caption] = Array.isArray(item) ? item : [item, null]
+                return (
+                    <figure className={classes.galleryItem}>
+                        <div key={i} className={classes.galleryImage}>
+                            <Link href={image} noStyle>
+                                <Image src={image} fill alt={caption || ''} />
+                            </Link>
+                        </div>
+                        {caption && (
+                            <figcaption className={classes.galleryCaption}>{caption}</figcaption>
+                        )}
+                    </figure>
+                )
+            })}
+        </Grid>
+    )
+}
