@@ -96,8 +96,8 @@ export const Gallery = (props: GalleryProps) => {
             {images.map((item, i) => {
                 const [image, caption] = Array.isArray(item) ? item : [item, null]
                 return (
-                    <figure className={classes.galleryItem}>
-                        <div key={i} className={classes.galleryImage}>
+                    <figure className={classes.galleryItem} key={i}>
+                        <div className={classes.galleryImage}>
                             <Link href={image} noStyle>
                                 <Image src={image} fill alt={caption || ''} />
                             </Link>
