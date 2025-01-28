@@ -11,8 +11,6 @@ The website and repo is designed to make it as easy as possible to make changes 
 ```yaml
 📂 feminist-ai.party
 ┣━━ 📂 content
-┃   ┣━━ 📂 events           # event summaries and resources as *.mdx
-┃   ┃   ┗━━ 📄 {event}.mdx  # event content and metadata
 ┃   ┣━━ 📂 kits             # different event kits as *.mdx
 ┃   ┃   ┗━━ 📄 {kit}.mdx    # kit content and metadata
 ┃   ┣━━ 📄 events.json      # list of future and past events to display
