@@ -28,7 +28,7 @@ The website supports regular Markdown, as well as several custom elements and en
 
 #### Headlines
 
-Markdown headlines can specify the attribute `id` in curly braces, which is used as the anchor link. The anchor link can also be referenced in the [table of contents](#frontmatter) of a page.
+Markdown headlines can specify the attribute `id` in curly braces, which is used as the anchor link. The anchor link can also be referenced in the [table of contents](#frontmatter-page-meta-data) of a page.
 
 ```markdown
 ## This is a headline {id="headline"}
@@ -65,7 +65,7 @@ doc = nlp("Hello world!")
 | `<Infobox />` | `title` (str), [`icon`](src/images/icons) (str) | Important notes, additional info, warnings |
 | `<Grid />` | `columns` (int, default `2`) | Multi-column grid, used in combination with `<Card />` |
 | `<Card />` | `title` (str), `url` (str), [`icon`](src/images/icons) (str), [`image`](public/images) (str) | Resources, further links, downloads |
-| `<Gallery />` | `images` (list), `columns` (int, default `3`) | Photo or image gallery. Images can be a string path or a tuple of `[path, caption]`. |
+| `<Gallery />` | `images` (list), `columns` (int, default `3`) | Photo or image gallery. Images can be a string path or a tuple of `[path, caption]` |
 | `<Mark />` | | Highlighted text |
 | `<Kbd />` | | Keyboard shortcuts |
 
