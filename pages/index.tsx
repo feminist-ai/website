@@ -7,20 +7,21 @@ import Layout from '../src/components/layout'
 import { Link, OptionalLink, H2, H3, DateTime } from '../src/components/typography'
 import Icon from '../src/components/icon'
 import logo from '../src/images/logo.png'
-import { getAllKits } from '../src/content'
-import type { KitData } from '../src/content'
+import { getAllPages } from '../src/content'
+import type { PageData } from '../src/content'
 import classes from '../src/styles/index.module.sass'
 import { META, EVENTS } from '../content'
 import generateRssFeed from '../src/rss'
 
 export async function getStaticProps() {
-    const kits = getAllKits()
-    generateRssFeed(kits)
-    return { props: { kits } }
+    const kits = getAllPages('kit')
+    const recaps = getAllPages('recap')
+    generateRssFeed([...kits, ...recaps])
+    return { props: { kits, recaps } }
 }
 
-const Index: NextPage<{ kits: KitData[] }> = (props) => {
-    const { kits } = props
+const Index: NextPage<{ kits: PageData[]; recaps: PageData[] }> = (props) => {
+    const { kits = [], recaps = [] } = props
     return (
         <Layout
             header={
@@ -106,6 +107,44 @@ const Index: NextPage<{ kits: KitData[] }> = (props) => {
                         })}
                     </tbody>
                 </table>
+            </section>
+
+            <section className={classes.section} id="recaps">
+                <div>
+                    <H2 className={clsx(classes.title, classes.titleRecaps)}>
+                        <span>Recaps</span>
+                    </H2>
+                    <p className={classes.meta}>
+                        Clit ipsum aute est ullamco velit ad commodo laborum sint duis dolor ipsum
+                        reprehenderit qui.
+                    </p>
+                </div>
+                <ul className={classes.items}>
+                    {recaps.map((recap) => (
+                        <li key={recap.id} className={classes.item}>
+                            <Link href={`/recaps/${recap.id}`} noStyle>
+                                <H3 className={clsx(classes.itemTitle, classes.itemTitleSmall)}>
+                                    {recap.title}
+                                </H3>
+                                <p>{recap.description}</p>
+                            </Link>
+                            <ul className={classes.itemFooter}>
+                                {recap.date && (
+                                    <li>
+                                        <Icon name="calendar" size={13} title="Date" spaced />
+                                        <DateTime date={recap.date} template="MMM DD, YYYY" />
+                                    </li>
+                                )}
+                                {recap.location && (
+                                    <li>
+                                        <Icon name="pin" size={13} title="Location" spaced />
+                                        {recap.location}
+                                    </li>
+                                )}
+                            </ul>
+                        </li>
+                    ))}
+                </ul>
             </section>
         </Layout>
     )

@@ -33,6 +33,7 @@ interface HBaseProps extends HProps {
 interface DateTimeProps {
     date: string
     template?: string
+    className?: string
 }
 
 interface MarkProps {
@@ -108,9 +109,13 @@ export const H5 = (props: HProps) => <H Component="h5" {...props} />
 export const H6 = (props: HProps) => <H Component="h6" {...props} />
 
 export const DateTime = (props: DateTimeProps) => {
-    const { date, template = 'MMM D, YYYY' } = props
+    const { date, template = 'MMM D, YYYY', className } = props
     const d = dayjs(date)
-    return <time dateTime={d.format()}>{d.format(template)}</time>
+    return (
+        <time dateTime={d.format()} className={className}>
+            {d.format(template)}
+        </time>
+    )
 }
 
 export const Mark = (props: MarkProps) => <mark className={classes.mark}>{props.children}</mark>

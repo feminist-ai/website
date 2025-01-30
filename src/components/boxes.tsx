@@ -51,7 +51,10 @@ export const Card = (props: CardProps) => {
     const domain = !url || !url.startsWith('https://') ? null : url.split('/')[2]
     return (
         <Component
-            className={clsx(classes.card, className, { [classes.cardHasImage]: !!image })}
+            className={clsx(classes.card, className, {
+                [classes.cardHasImage]: !!image,
+                [classes.cardHasColor]: !!color,
+            })}
             style={{ '--color-card': color } as React.CSSProperties}
         >
             {image && (

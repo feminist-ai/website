@@ -26,7 +26,8 @@ $breakpoint: 768px
 .header
     padding-top: 3rem
 
-.label
+.label,
+.footer-title
     background: var(--color-theme)
     color: var(--color-bg)
     font-size: 2.6rem
@@ -41,12 +42,19 @@ $breakpoint: 768px
     @media(max-width: #{$breakpoint})
         font-size: 2rem
 
+.label-recap,
+.footer-title
+    background: var(--color-text)
+
+.footer-title
+    margin: 0
+
 .icon
     margin-right: 1.25rem
     bottom: 6px
 
 .sidebar
-    opacity: 0.6
+    color: var(--color-text-light)
     list-style: none
     font-size: 1.4rem
 
@@ -67,3 +75,7 @@ $breakpoint: 768px
 .sidebar-title
     font-size: inherit
     margin: 2.5rem 0 0.25rem
+
+.footer
+    margin-top: 3rem
+    padding-top: 3rem

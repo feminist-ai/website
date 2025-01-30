@@ -1,5 +1,6 @@
 $breakpoint: 768px
 $breakpoint-md: 1024px
+$titles: kits, events, recaps
 
 .logo
     position: relative
@@ -37,7 +38,7 @@ $breakpoint-md: 1024px
         display: block
 
 .meta
-    opacity: 0.6
+    color: var(--color-text-light)
     font-size: 1.5rem
     padding-bottom: 2rem
 
@@ -57,11 +58,9 @@ $breakpoint-md: 1024px
         white-space: nowrap
         width: 1px
 
-.title-kits
-    --title-image: url(../images/title_kits.png)
-
-.title-events
-    --title-image: url(../images/title_events.png)
+@each $title in $titles
+    .title-#{$title}
+        --title-image: url(../images/title_#{$title}.png)
 
 .items
     list-style: none
@@ -86,6 +85,24 @@ $breakpoint-md: 1024px
 
 .item-title
     font-size: 2.2rem
+
+.item-title-small
+    font-family: var(--font-primary)
+    font-size: 1.9rem
+    font-weight: bold
+    line-height: 1.3
+
+.item-footer
+    list-style: none
+    font-size: 1.3rem
+    margin-top: 1rem
+    color: var(--color-text-light)
+
+    li
+        display: inline-block
+
+        &:not(:last-child)
+            margin-right: 1rem
 
 .events
     margin: 0 auto
@@ -124,7 +141,7 @@ $breakpoint-md: 1024px
 
     li
         display: inline
-        opacity: 0.6
+        color: var(--color-text-light)
 
         &:not(:last-child):after
             content: ", "

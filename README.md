@@ -4,6 +4,16 @@
 
 ## 💛 Contributing to the site
 
+### Content types
+
+The website consists of mostly 3 types of content, provided via the directory [`content`](content):
+
+| Type | Source | Description |
+| --- | --- | --- |
+| **Kit** | [`kits/{id}.mdx`](content/kits) | Event kits for different topics including instructions, downloadable templates and resources you can use to host your own Feminist AI LAN Party. |
+| **Recap** | [`recaps/{id}.mdx`](content/recaps) | Recaps and summaries of past events. If you've hosted your own Feminist AI LAN Party, you can contribute a recap to share your experiences and results. |
+| **Event** | [`events.json`](content/events.json) | Past and future Feminist AI LAN Parties. Past events can optionally link to a recap if available. |
+
 ### Repo structure
 
 The website and repo is designed to make it as easy as possible to make changes without having to edit any source files, code or markup outside of the Markdown pages. All relevant metadata is organized in JSON files (with JSON schemas attached so your editor can highlight mistakes). If you want to edit content, the only relevant directories should be **`content`** and **`public`** (images and PDF templates).
@@ -13,11 +23,13 @@ The website and repo is designed to make it as easy as possible to make changes 
 ┣━━ 📂 content
 ┃   ┣━━ 📂 kits             # different event kits as *.mdx
 ┃   ┃   ┗━━ 📄 {kit}.mdx    # kit content and metadata
+┃   ┣━━ 📂 recaps           # different event recaps as *.mdx
+┃   ┃   ┗━━ 📄 {recap}.mdx  # recap content and metadata
 ┃   ┣━━ 📄 events.json      # list of future and past events to display
 ┃   ┗━━ 📄 meta.json        # website meta information
 ┣━━ 📂 pages                # source of pages
 ┣━━ 📂 public
-┃   ┣━━ 📂 images           # images used by kits and events
+┃   ┣━━ 📂 images           # images used by kits and recaps
 ┃   ┗━━ 📂 templates        # downloadable and printable PDF templates
 ┗━━ 📂 src                  # website source and components
 ```
@@ -108,6 +120,15 @@ authors:
   - ['Another Author']
 ---
 ```
+
+Recaps can optionally specify a `date` and `location`, as well as the IDs of related kits, which are then shown in the sidebar and at the bottom of the page.
+
+```yaml
+date: 2024-09-28
+location: Berlin, Germany
+kits: ['adversarial-attacks', 'data']
+```
+
 
 ### Running the site locally
 
