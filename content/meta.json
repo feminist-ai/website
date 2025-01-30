@@ -10,5 +10,22 @@
     "repo": "https://github.com/ines/feminist-ai",
     "rssFeed": "/feed.xml",
     "license": "CC BY-NC 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/deed.en"
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/deed.en",
+    "partners": [
+        {
+            "title": "Probably Private",
+            "logo": "probably-private.png",
+            "url": "https://probablyprivate.com"
+        },
+        {
+            "title": "Explosion",
+            "logo": "explosion.svg",
+            "url": "https://explosion.ai"
+        },
+        {
+            "title": "Pioneers Hub",
+            "logo": "pioneershub.svg",
+            "url": "https://pioneershub.de"
+        }
+    ]
 }

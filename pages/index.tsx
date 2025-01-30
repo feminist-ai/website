@@ -146,6 +146,32 @@ const Index: NextPage<{ kits: PageData[]; recaps: PageData[] }> = (props) => {
                     ))}
                 </ul>
             </section>
+            <section className={classes.section} id="partners">
+                <div>
+                    <H2 className={clsx(classes.title, classes.titlePartners)}>
+                        <span>Partners</span>
+                    </H2>
+                    <p className={classes.meta}>
+                        Clit ipsum aute est ullamco velit ad commodo laborum sint duis dolor ipsum
+                        reprehenderit qui.
+                    </p>
+                </div>
+                <ul className={classes.partners}>
+                    {META.partners.map((partner) => (
+                        <li key={partner.logo}>
+                            <Link href={partner.url} title={partner.title} noStyle>
+                                <Image
+                                    src={`/logos/${partner.logo}`}
+                                    alt={partner.title}
+                                    className={classes.partner}
+                                    width={80}
+                                    height={80}
+                                />
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </section>
         </Layout>
     )
 }

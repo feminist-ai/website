@@ -1,6 +1,6 @@
 $breakpoint: 768px
 $breakpoint-md: 1024px
-$titles: kits, events, recaps
+$titles: kits, events, recaps, partners
 
 .logo
     position: relative
@@ -145,3 +145,17 @@ $titles: kits, events, recaps
 
         &:not(:last-child):after
             content: ", "
+
+.partners
+    list-style: none
+    padding-top: 2rem
+
+    li
+        display: inline-block
+
+        &:not(:last-child)
+            margin-right: 2.5rem
+
+    img
+        height: 55px
+        width: auto
