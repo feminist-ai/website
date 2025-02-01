@@ -30,7 +30,8 @@ The website and repo is designed to make it as easy as possible to make changes 
 ┣━━ 📂 pages                # source of pages
 ┣━━ 📂 public
 ┃   ┣━━ 📂 images           # images used by kits and recaps
-┃   ┗━━ 📂 templates        # downloadable and printable PDF templates
+┃   ┣━━ 📂 templates        # downloadable and printable PDF templates
+┃   ┗━━ 📂 videos           # videos used by kits and recaps
 ┗━━ 📂 src                  # website source and components
 ```
 
@@ -78,6 +79,8 @@ doc = nlp("Hello world!")
 | `<Grid />` | `columns` (int, default `2`) | Multi-column grid, used in combination with `<Card />` |
 | `<Card />` | `title` (str), `url` (str), [`icon`](src/images/icons) (str), [`image`](public/images) (str) | Resources, further links, downloads |
 | `<Gallery />` | `images` (list), `columns` (int, default `3`) | Photo or image gallery. Images can be a string path or a tuple of `[path, caption]` |
+| `<Video />` | `src` (str), `width` (int), `height` (int), `caption` (str) | Embedded video file. |
+| `<YouTube />` | `id` (str), `start` (int) | Embedded YouTube video. |
 | `<Mark />` | | Highlighted text |
 | `<Kbd />` | | Keyboard shortcuts |
 
@@ -100,6 +103,9 @@ This is an infobox with text, a title and an icon.
   "/images/photo2.jpg",
   "/images/photo3.jpg"
 ]} />
+
+<Video src="/videos/data_prodigy-annotation.mp4" width={838} height={524} caption="This is a caption" />
+<YouTube id="jpWqz85F_4Y" start={372} />
 ```
 
 #### Frontmatter (page meta data)

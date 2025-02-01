@@ -2,7 +2,7 @@ $breakpoint: 768px
 
 .content
     font-family: var(--font-primary)
-    font-size: 1.8rem
+    font-size: 1.7rem
 
     @media(max-width: #{$breakpoint})
         font-size: 1.6rem
@@ -21,7 +21,25 @@ $breakpoint: 768px
                 font-size: 1.8rem
 
     h2, h3, h4, h5, h6
-        padding-top: 1.5rem
+        padding-top: 1.25em
+
+    img
+        max-width: 100%
+
+    & > img,
+    & p > a > img
+        display: block
+        margin: 0 auto 2.5rem
+
+    figure
+        margin-bottom: 3rem
+        text-align: center
+
+    figcaption
+        font-size: 1.4rem
+        color: var(--color-text-light)
+        text-align: center
+        margin-top: 1.25rem
 
 .header
     padding-top: 3rem

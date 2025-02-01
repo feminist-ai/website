@@ -31,8 +31,6 @@ Labore cupidatat adipisicing sit fugiat incididunt. Labore tempor officia sit du
 2. Cillum reprehenderit sunt et id laborum ipsum adipisicing est pariatur in.
 3. Cupidatat elit irure sint.
 
-Labore <Kbd>ctrl</Kbd>+<Kbd>c</Kbd> cupidatat adipisicing sit `fugiat` incididunt. Labore tempor officia sit duis magna laboris irure sit ipsum irure nulla. Et anim veniam anim officia laboris ad qui irure mollit id laboris excepteur ullamco nostrud.
-
 ```python
 ### This is a code example {highlight="8"}
 import spacy
@@ -65,7 +63,15 @@ print(doc._.layout)
 
 ## Introduction to Prodigy {id="prodigy"}
 
-Clit ipsum tempor officia sit duis magna `laboris irure` sit ipsum irure nulla. Ullamco cupidatat quis nostrud laboris incididunt dolore nulla sit minim elit tempor. Anim proident ad eiusmod sit.
+[Prodigy](https://prodi.gy) is a modern annotation tool for creating data for machine learning models. You can also use it to help you inspect and clean your data, do error analysis and develop rule-based systems to use in combination with your statistical models. At your LAN Party, you can use Prodigy to collaboratively explore and analyze data, and create datasets for training or evaluating models.
+
+![Screenshot of Prodigy and command-line usage](/images/data_prodigy.png)
+
+Prodigy comes with an efficient modern web application and Python library, and includes a range of built-in workflows, also called "[recipes](https://prodi.gy/docs/recipes)". It's fully scriptable in Python and lets you implement your own custom recipes for for loading and pre-processing data and automating annotation. If you can do something in Python, you can use it with Prodigy!
+
+### Setup and installation {id="prodigy-install"}
+
+Prodigy ships as a Python package and can be installed via `pip` like any other package, with `--extra-index-url` specifying the download server and license key. We recommend using a fresh [virtual environment](https://docs.python.org/3/library/venv.html) to get started.
 
 <Infobox title="Get your Prodigy license key" icon="warning">
 
@@ -78,11 +84,68 @@ To install and use Prodigy, you will need a license key. We're happy to support 
 $ pip install prodigy --extra-index-url https://XXXX-XXXX-XXXX-XXXX@download.prodi.gy
 ```
 
-Ullamco cupidatat quis nostrud laboris incididunt dolore nulla sit minim elit tempor. Anim proident ad eiusmod sit. Incididunt duis eiusmod mollit. Fugiat qui ut culpa voluptate incididunt voluptate. Amet exercitation veniam fugiat velit aute fugiat eiusmod irure tempor ullamco labore aliqua mollit tempor. Laborum amet Lorem est. In occaecat esse aliquip adipisicing veniam ea non.
+Once installed, the main way to interact with Prodigy is via the command line using the `prodigy` command, followed by the name of a [recipe](https://prodi.gy/docs/recipes) you want to run and optional settings. For example, to make sure everything it set up correctly and to view details about your installation, you can run the [`stats`](https://prodi.gy/docs/recipes#stats) recipe:
 
-## Downloads {id="downloads"}
+```bash
+$ prodigy stats
+```
+
+Annotation recipes will start the web server on `http://localhost:8080`. You can then open the app in your browser and begin annotating. The data is automatically saved to the database in the background and you can also save manually by clicking the save button or pressing <Kbd>cmd</Kbd>+<Kbd>s</Kbd>. Prodigy also supports other keyboard [shortcuts](https://prodi.gy/docs/api-web-app#actions) for faster and more efficient annotation.
+
+<Grid>
+<Card title="Prodigy documentation" url="https://prodi.gy/docs" icon="computer">In-depth documentation, workflows and examples for the Prodigy annotation tool.</Card>
+<Card title="Prodigy on YouTube" url="https://www.youtube.com/playlist?list=PLBmcuObd5An56EbwRCtNWW9JnUckO7Xp-" icon="video">Video tutorials showing Prodigy in action for different use cases.</Card>
+</Grid>
+
+## Data exploration {id="exploration"}
+
+Clit ipsum aute est ullamco velit ad commodo laborum sint duis dolor ipsum reprehenderit qui. Aliqua enim commodo velit. Et proident enim incididunt ad sunt eu enim adipisicing.
+
+## Data annotation {id="annotation"}
+
+Clit ipsum aute est ullamco velit ad commodo laborum sint duis dolor ipsum reprehenderit qui. Aliqua enim commodo velit. Et proident enim incididunt ad sunt eu enim adipisicing.
+
+```bash
+### Named entity recognition
+$ prodigy ner.manual ner_fashion_brands blank:en ./reddit.jsonl --label FASHION_BRAND
+```
+
+<Video src="/videos/data_prodigy-annotation.mp4" width={838} height={524} caption={<>Example of span annotation with Prodigy. The selection automatically snaps to token boundaries and single-token spans can be added by double-clicking a token. The keyboard shortcut <Kbd>a</Kbd> accepts the annotation and moves to the next example. <Kbd>space</Kbd> lets you ignore and skip an example.</>} />
+
+Here are some more tips, ideas and activities for your LAN Party:
+
+- Have all participants log the time spent annotating data. This lets you calculate the person hours (cumulative time it would have taken a single person) later on. You may find that it takes surprisingly few person hours to create a high-quality dataset that's large enough to train a task-specific model.
+- If multiple participants are annotating, have a portion of the data annotated by everyone. Using Prodigy's [`review`](https://prodi.gy/docs/recipes#review) recipe and interface, you can then compare their decisions on the same examples and discuss disagreements with the group (also see the [discussion prompts](#discussion) for more ideas).
+- Break up your text into smaller chunks and separate the task into multiple steps wherever possible. This greatly reduces the cognitive load on the annotator (humans have a cache, too!) and makes the process more efficient and less error-prone. Multiple passes over the data may sound like more work, but can actually be more than [10× faster](https://explosion.ai/blog/sp-global-commodities#workflow) overall!
+
+## Human-in-the-loop distillation {id="distillation"}
 
 Labore cupidatat adipisicing sit fugiat incididunt. Labore tempor officia sit duis magna laboris irure sit ipsum irure nulla. Et anim veniam anim officia laboris.
+
+![Flowchart of human-in-the-loop distillation workflow](/images/data_distillation.jpg "Human-in-the-loop distillation workflow using a Large Language Model to create data for a task-specific component, trained with transfer learning")
+
+In this workflow, the LLM is only used **during development**, which is not only more cost-effective, but also ensures no real-world runtime data has to be sent to external model APIs or slow generative models. In production, the system only uses the distilled task-specific component that's more accurate, faster and fully private.
+
+<Infobox title="Hardware requirements" icon="check">
+
+Data annotation will work fine on your local machine, but for training, it's helpful to have a GPU available, especially if you're looking to train models using transformer embeddings. If you don't have access to a GPU, you can still run training experiments – it might just be slower or you'll have to use a non-transformer config, which can lead to lower accuracies.
+
+</Infobox>
+
+Magna proident do veniam pariatur sunt labore amet quis. Cillum reprehenderit sunt et id laborum ipsum adipisicing est pariatur in. Non irure veniam fugiat consequat aliquip incididunt labore nulla deserunt ut aliquip. Ea irure magna veniam mollit ullamco consequat aute fugiat est.
+
+<Grid>
+<Card title="A practical guide to human-in-the-loop distillation" url="https://explosion.ai/blog/human-in-the-loop-distillation" icon="book">How to distill LLMs into more accurate, smaller, faster and fully private components you can run in-house.</Card>
+<Card title="Half hour of labeling power: Can we beat GPT?" url="https://speakerdeck.com/inesmontani/workshop-half-hour-of-labeling-power-can-we-beat-gpt" icon="image">Human-in-the-loop distillation workshop using LLMs to create high-quality data for a task-specific model.</Card>
+</Grid>
+
+## Discussion prompts {id="discussion"}
+
+- What are the most common mistakes the model made during pre-annotation? Did you come across any patterns? What can this tell us about the model and its original training data?
+- Which interesting edge cases did you find while exploring the data? Where did the label scheme not match the reality of the examples? What potential impacts could this have on the model? And can the label scheme be adjusted?
+- If examples were annotated by multiple participants, where did they disagree and why? Is there a correct answer or is the decision entirely subjective? What does this mean for the label scheme and model?
+
+## Downloads {id="downloads"}
 
 <Grid>
 <Card title="Feminist AI LAN Party logo (PDF)" url="/templates/logo.pdf" image="/templates/logo.jpg" icon="page">A4 page with printable logo to put up at your event.</Card>
@@ -90,8 +153,6 @@ Labore cupidatat adipisicing sit fugiat incididunt. Labore tempor officia sit du
 </Grid>
 
 ## Resources {id="resources"}
-
-Labore cupidatat adipisicing sit fugiat incididunt. Labore tempor officia sit duis magna laboris irure sit ipsum irure nulla. Et anim veniam anim officia laboris ad qui irure mollit id laboris.
 
 <Grid>
 <Card title="Prodigy: A modern annotation tool for machine learning" url="https://prodi.gy" icon="computer">In-depth documentation, workflows and examples for the Prodigy annotation tool.</Card>

@@ -17,6 +17,8 @@ import iconScissors from './scissors.png'
 import iconHeart from './heart.png'
 import iconCopyright from './copyright.png'
 import iconLicense from './license.png'
+import iconCheck from './check.png'
+import iconVideo from './video.png'
 
 const ICONS: Record<string, StaticImageData> = {
     pin: iconPin,
@@ -36,6 +38,8 @@ const ICONS: Record<string, StaticImageData> = {
     heart: iconHeart,
     copyright: iconCopyright,
     license: iconLicense,
+    check: iconCheck,
+    video: iconVideo,
 }
 
 export default ICONS

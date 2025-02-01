@@ -48,7 +48,8 @@ export const Grid = (props: GridProps) => {
 
 export const Card = (props: CardProps) => {
     const { title, url, icon, image, color, Component = 'div', className, children } = props
-    const domain = !url || !url.startsWith('https://') ? null : url.split('/')[2]
+    const domain =
+        !url || !url.startsWith('https://') ? null : url.split('/')[2].replace('www.', '')
     return (
         <Component
             className={clsx(classes.card, className, {

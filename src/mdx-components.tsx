@@ -1,6 +1,7 @@
 import { H2, H3, H4, H5, H6, Link, Mark, Ol, Ul, Table } from './components/typography'
 import { Infobox, Card, Grid, Gallery } from './components/boxes'
 import { Code, Pre, Kbd } from './components/code'
+import { Video, YouTube } from './components/embeds'
 
 const mdxComponents = {
     a: Link,
@@ -16,11 +17,13 @@ const mdxComponents = {
     table: Table,
     Table,
     Mark,
+    Kbd,
     Infobox,
     Card,
     Grid,
     Gallery,
-    Kbd,
+    Video,
+    YouTube,
 }
 
 export default mdxComponents
