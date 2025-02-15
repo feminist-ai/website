@@ -1,6 +1,6 @@
 ---
 title: Data Development
-description: "Clit ipsum aute est ullamco velit ad commodo laborum sint duis dolor ipsum reprehenderit qui. Aliqua enim commodo velit. Et proident enim incididunt ad sunt eu enim adipisicing."
+description: "This kit includes workflows for hosting a LAN Party on data development to explore patterns and limitations of general-purpose models, and use them to create more accurate, smaller, faster and private task-specific models."
 color: '#bc85ff'
 icon: data
 toc:
@@ -15,51 +15,9 @@ authors:
   - ['Ines Montani', 'https://ines.io']
 ---
 
-Ullamco cupidatat quis nostrud laboris incididunt dolore nulla sit minim elit tempor. Anim proident ad eiusmod sit. Incididunt duis eiusmod mollit. Fugiat qui ut culpa voluptate incididunt voluptate. Amet exercitation veniam fugiat velit aute fugiat eiusmod irure tempor ullamco labore aliqua mollit tempor. Laborum amet Lorem est. In occaecat esse aliquip adipisicing veniam ea non.
+Data development lets your workshop participants get a feeling for the importance of engaging with data, explore patterns and limitations of general-purpose models, and use those models to create data for more accurate, smaller, faster and fully private task-specific components that you can run yourself.
 
-Labore [cupidatat adipisicing](#) sit fugiat incididunt. Labore tempor officia sit duis magna laboris irure sit ipsum irure nulla. Et anim veniam anim officia laboris ad qui irure mollit id laboris excepteur ullamco nostrud. Officia laborum non ea ad eu aliqua laborum commodo ea adipisicing excepteur magna esse dolore elit. Cupidatat elit irure sint. Qui sint aliquip veniam dolor culpa ut nulla quis.
-
-Magna proident do veniam pariatur sunt labore amet quis. Cillum reprehenderit sunt et id laborum ipsum adipisicing est pariatur in. Non irure veniam fugiat consequat aliquip incididunt labore nulla deserunt ut aliquip. Ea irure magna veniam mollit ullamco consequat aute fugiat est.
-
-- Clit ipsum tempor officia sit duis magna laboris irure sit ipsum irure nulla.
-- Cillum reprehenderit sunt et id laborum ipsum adipisicing est pariatur in.
-- Cupidatat elit irure sint.
-
-Labore cupidatat adipisicing sit fugiat incididunt. Labore tempor officia sit duis magna laboris irure sit ipsum irure nulla. Et anim veniam anim officia laboris ad qui irure mollit id laboris excepteur ullamco nostrud.
-
-1. Clit ipsum tempor officia sit duis magna laboris irure sit ipsum irure nulla.
-2. Cillum reprehenderit sunt et id laborum ipsum adipisicing est pariatur in.
-3. Cupidatat elit irure sint.
-
-```python
-### This is a code example {highlight="8"}
-import spacy
-from spacy_layout import spaCyLayout
-
-nlp = spacy.blank("en")
-layout = spaCyLayout(nlp)
-
-# Process a document and create a spaCy Doc object
-doc = layout("./starcraft.pdf")
-
-# The text-based contents of the document
-print(doc.text)
-# Document layout including pages and page sizes
-print(doc._.layout)
-```
-
-| &nbsp; | Global<br />Carbon<br />Credits | Americas<br />Crude<br />Oil | Asia<br />Steel<br />Rebar |
-| --- | ---: | ---: | ---: |
-| **Accuracy** (F-score) | 0.95 | 0.96 | 0.99 |
-| **Speed** (words/second) | 15,730 | 13,908 | <Mark>16,015</Mark> |
-| **Model Size** | 6 MB | 6 MB | 6 MB |
-| **Training Examples** | 1,598 | 1,695 | 1,368 |
-| **Evaluation Examples** | 211 | 200 | 345 |
-| **Data Development Time** | ~15h | ~15h | ~15h |
-
-### Gallery test {id="gallery"}
-
-<Gallery images={[['/images/zines_spacy101.jpg', 'This is a caption'], '/images/zines_wizardzines.jpg', '/images/zines_bubblesort.jpg', '/images/zines_wizardzines.jpg', '/images/zines_spacy101.jpg']} />
+This kit includes workflows and tips for hosting a LAN Party on data development, annotation and data exploration. It can be applied to any data and topic you choose to work with and uses the [Prodigy](https://prodi.gy) annotation tool, which is available for free for your party. The data and task you use with this kit should ideally focus on **information extraction**, i.e. categorizing text or extracting structured information from it.
 
 ## Introduction to Prodigy {id="prodigy"}
 
@@ -71,7 +29,7 @@ Prodigy comes with an efficient modern web application and Python library, and i
 
 ### Setup and installation {id="prodigy-install"}
 
-Prodigy ships as a Python package and can be installed via `pip` like any other package, with `--extra-index-url` specifying the download server and license key. We recommend using a fresh [virtual environment](https://docs.python.org/3/library/venv.html) to get started.
+Prodigy ships as a Python library and can be installed via `pip` like any other package, with `--extra-index-url` specifying the download server and license key. We recommend using a fresh [virtual environment](https://docs.python.org/3/library/venv.html) to get started.
 
 <Infobox title="Get your Prodigy license key" icon="warning">
 
@@ -84,7 +42,7 @@ To install and use Prodigy, you will need a license key. We're happy to support 
 $ pip install prodigy --extra-index-url https://XXXX-XXXX-XXXX-XXXX@download.prodi.gy
 ```
 
-Once installed, the main way to interact with Prodigy is via the command line using the `prodigy` command, followed by the name of a [recipe](https://prodi.gy/docs/recipes) you want to run and optional settings. For example, to make sure everything it set up correctly and to view details about your installation, you can run the [`stats`](https://prodi.gy/docs/recipes#stats) recipe:
+Once installed, the main way to interact with Prodigy is via the **command line** using the `prodigy` command, followed by the name of a [recipe](https://prodi.gy/docs/recipes) you want to run and optional settings. For example, to make sure everything it set up correctly and to view details about your installation, you can run the [`stats`](https://prodi.gy/docs/recipes#stats) recipe:
 
 ```bash
 $ prodigy stats
@@ -97,13 +55,40 @@ Annotation recipes will start the web server on `http://localhost:8080`. You can
 <Card title="Prodigy on YouTube" url="https://www.youtube.com/playlist?list=PLBmcuObd5An56EbwRCtNWW9JnUckO7Xp-" icon="video">Video tutorials showing Prodigy in action for different use cases.</Card>
 </Grid>
 
+### Data preparation {id="prodigy-preparation"}
+
+Prodigy can load in data in a variety of input [formats](https://prodi.gy/docs/api-loaders#input), including plain text, JSON or CSV. An especially good option is JSONL, newline-delimited JSON: it gives you the flexibility of JSON, but can be read in line by line and allows faster loading times for large datasets.
+
+```json
+{"text": "This is a text"}
+{"text": "This is another text"}
+```
+
+---
+
 ## Data exploration {id="exploration"}
 
-Clit ipsum aute est ullamco velit ad commodo laborum sint duis dolor ipsum reprehenderit qui. Aliqua enim commodo velit. Et proident enim incididunt ad sunt eu enim adipisicing.
+If it's your first time or you're not sure how to get started, start with data exploration to get a feeling for the data. The [`mark`](https://prodi.gy/docs/recipes#mark) recipe in Prodigy loads in your data and show it in one of the available [interfaces](https://prodi.gy/docs/api-interfaces), for example `text`.
+
+```bash
+### View data
+$ prodigy mark data_exploration ./data.jsonl --view-id text
+```
+
+You can now move through the examples and click the green accept button or use the keyboard shortcut <Kbd>a</Kbd> to move on to the next example. You can also use the accept and reject buttons to mark examples to include or exclude later on.
+
+{/** TODO: screenshot */}
+
+### Ideas and activities {id="exploration-ideas"}
+
+- Use the data exploration phase to plan out your [annotation](#annotation) task and label scheme. For example, if you want to group the texts into categories, which category types make sense and reflect the reality of the data? As you continue exploring, the schema will likely change and evolve.
+- Go through the data together in the group and talk about what you see and what stands out. If participans are exploring individually, take screenshots of any interesting or funny examples and edge cases you come across and [discuss](#discussion) them in the group later.
+
+---
 
 ## Data annotation {id="annotation"}
 
-Clit ipsum aute est ullamco velit ad commodo laborum sint duis dolor ipsum reprehenderit qui. Aliqua enim commodo velit. Et proident enim incididunt ad sunt eu enim adipisicing.
+Once you have decided on a label scheme, you can use Prodigy to create annotations on your data. For example, the [`ner.manual`](https://prodi.gy/docs/named-entity-recognition#manual) recipe starts the annotation server with one or more labels and lets you highlight spans in the text. Prodigy also supports using match [patterns](https://prodi.gy/docs/named-entity-recognition#manual-patterns) or an existing pretrained [model](https://prodi.gy/docs/named-entity-recognition#manual-model) or general-purpose [LLM](https://prodi.gy/docs/recipes#llm) to pre-annotate examples for you.
 
 ```bash
 ### Named entity recognition
@@ -112,19 +97,18 @@ $ prodigy ner.manual ner_fashion_brands blank:en ./reddit.jsonl --label FASHION_
 
 <Video src="/videos/data_prodigy-annotation.mp4" width={838} height={524} caption={<>Example of span annotation with Prodigy. The selection automatically snaps to token boundaries and single-token spans can be added by double-clicking a token. The keyboard shortcut <Kbd>a</Kbd> accepts the annotation and moves to the next example. <Kbd>space</Kbd> lets you ignore and skip an example.</>} />
 
-Here are some more tips, ideas and activities for your LAN Party:
+<Grid columns={3}>
+<Card title="Named Entity Recognition" url="https://prodi.gy/docs/named-entity-recognition" icon="book">Annotate names and concepts.</Card>
+<Card title="Span Categorization" url="https://prodi.gy/docs/span-categorization" icon="book">Annotate arbitrary overlapping phrases.</Card>
+<Card title="Text Classification" url="https://prodi.gy/docs/text-classification" icon="book">Assign one or more labels to the whole text</Card>
+</Grid>
 
-- Have all participants log the time spent annotating data. This lets you calculate the person hours (cumulative time it would have taken a single person) later on. You may find that it takes surprisingly few person hours to create a high-quality dataset that's large enough to train a task-specific model.
-- If multiple participants are annotating, have a portion of the data annotated by everyone. Using Prodigy's [`review`](https://prodi.gy/docs/recipes#review) recipe and interface, you can then compare their decisions on the same examples and discuss disagreements with the group (also see the [discussion prompts](#discussion) for more ideas).
-- Break up your text into smaller chunks and separate the task into multiple steps wherever possible. This greatly reduces the cognitive load on the annotator (humans have a cache, too!) and makes the process more efficient and less error-prone. Multiple passes over the data may sound like more work, but can actually be more than [10× faster](https://explosion.ai/blog/sp-global-commodities#workflow) overall!
+After saving your annotations, you can export your annotated data to a JSONL (newline-delimited JSON) file in Prodigy's [format](https://prodi.gy/docs/api-interfaces). You can also use the [`train`](https://prodi.gy/docs/recipes#train) recipe to train a [spaCy](https://spacy.io) model component from your collected annotations.
 
-## Human-in-the-loop distillation {id="distillation"}
-
-Labore cupidatat adipisicing sit fugiat incididunt. Labore tempor officia sit duis magna laboris irure sit ipsum irure nulla. Et anim veniam anim officia laboris.
-
-![Flowchart of human-in-the-loop distillation workflow](/images/data_distillation.jpg "Human-in-the-loop distillation workflow using a Large Language Model to create data for a task-specific component, trained with transfer learning")
-
-In this workflow, the LLM is only used **during development**, which is not only more cost-effective, but also ensures no real-world runtime data has to be sent to external model APIs or slow generative models. In production, the system only uses the distilled task-specific component that's more accurate, faster and fully private.
+```bash
+### Export data
+$ prodigy db-out ner_fashion_brands ./output
+```
 
 <Infobox title="Hardware requirements" icon="check">
 
@@ -132,18 +116,44 @@ Data annotation will work fine on your local machine, but for training, it's hel
 
 </Infobox>
 
-Magna proident do veniam pariatur sunt labore amet quis. Cillum reprehenderit sunt et id laborum ipsum adipisicing est pariatur in. Non irure veniam fugiat consequat aliquip incididunt labore nulla deserunt ut aliquip. Ea irure magna veniam mollit ullamco consequat aute fugiat est.
+### Ideas and activities {id="annotation-ideas"}
+
+- Have all participants log the time spent annotating data. This lets you calculate the person hours (cumulative time it would have taken a single person) later on. You may find that it takes surprisingly few person hours to create a high-quality dataset that's large enough to train a task-specific model.
+- Take screenshots of any interesting or funny examples and edge cases you come across during annotation. You can later present and [discuss](#discussion) them in the group.
+- If multiple participants are annotating, have a portion of the data annotated by everyone. Using Prodigy's [`review`](https://prodi.gy/docs/recipes#review) recipe and interface, you can then compare their decisions on the same examples and discuss disagreements with the group (also see the [discussion prompts](#discussion) for more ideas).
+- Break up your text into smaller chunks and separate the task into multiple steps wherever possible. This greatly reduces the cognitive load on the annotator (humans have a cache, too!) and makes the process more efficient and less error-prone. Multiple passes over the data may sound like more work, but can actually be more than [10× faster](https://explosion.ai/blog/sp-global-commodities#workflow) overall!
+
+---
+
+## Human-in-the-loop distillation {id="distillation"}
+
+One of the most powerful data development use cases is distilling larger general-purpose LLMs into smaller, task-specific components. You can do this by using the LLM to pre-annotate and help you create data faster, and then train a small model on the created annotations.
+
+In this workflow, the LLM is only used **during development**, which is not only more cost-effective, but also ensures no real-world runtime data has to be sent to external model APIs or slow generative models. In production, the system only uses the distilled task-specific component that's more accurate, faster and fully private.
+
+
+![Flowchart of human-in-the-loop distillation workflow](/images/data_distillation.jpg "Human-in-the-loop distillation workflow using a Large Language Model to create data for a task-specific component, trained with transfer learning")
 
 <Grid>
 <Card title="A practical guide to human-in-the-loop distillation" url="https://explosion.ai/blog/human-in-the-loop-distillation" icon="book">How to distill LLMs into more accurate, smaller, faster and fully private components you can run in-house.</Card>
 <Card title="Half hour of labeling power: Can we beat GPT?" url="https://speakerdeck.com/inesmontani/workshop-half-hour-of-labeling-power-can-we-beat-gpt" icon="image">Human-in-the-loop distillation workshop using LLMs to create high-quality data for a task-specific model.</Card>
 </Grid>
 
+### Ideas and activities {id="distillation-ideas"}
+
+- Combine annotations by all participants and train a task-specific model on them. Don't forget to hold back a sample of the data for evaluation. (If you're not sharing a database, you can use [`db-in`](https://prodi.gy/docs/recipes#db-in) to import annotations.) Compare the accuracy, speed and model sizes you can achieve with different training [configurations](https://spacy.io/usage/training).
+- Run the [`train-curve`](https://prodi.gy/docs/recipes#train-curve) command to see how accuracy improves (and will likely improve further) with more data by training on different portions of the data. Setting `--show-plot` will render a visual plot of the curve in your terminal. As a rule of thumb, if accuracy improves within the last 25%, training with more examples will likely result in better accuracy.
+- Use a general-purpose LLM to label the data for you (e.g. with [`ner.llm.fetch`](https://prodi.gy/docs/recipes#ner-llm.fetch)) and evaluate its accuracy on a test set of your manually created and corrected annotations. This is the baseline you're looking to beat with your task-specific model.
+- Recreate the experiment from the PyData NYC [workshop](https://speakerdeck.com/inesmontani/workshop-half-hour-of-labeling-power-can-we-beat-gpt) where we used a general-purpose LLM to help annotate data collaboratively with the participants, corrected the annotations and trained a 20&times; faster model that beat the LLM baseline.
+
+---
+
 ## Discussion prompts {id="discussion"}
 
 - What are the most common mistakes the model made during pre-annotation? Did you come across any patterns? What can this tell us about the model and its original training data?
 - Which interesting edge cases did you find while exploring the data? Where did the label scheme not match the reality of the examples? What potential impacts could this have on the model? And can the label scheme be adjusted?
 - If examples were annotated by multiple participants, where did they disagree and why? Is there a correct answer or is the decision entirely subjective? What does this mean for the label scheme and model?
+- Were you able to beat the LLM baseline with annotated data? How does your task-specific model compare in terms of accuracy, speed and model size? What could this mean for data development workflows in practice and use cases that prioritize speed and/or data privacy?
 
 ## Downloads {id="downloads"}
 
