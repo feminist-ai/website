@@ -133,3 +133,5 @@ export const Table = (props: TableProps) => (
         <table>{props.children}</table>
     </figure>
 )
+
+export const Hr = () => <hr className={classes.hr} />
