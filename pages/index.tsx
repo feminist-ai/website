@@ -47,8 +47,8 @@ const Index: NextPage<{ kits: PageData[]; recaps: PageData[] }> = (props) => {
                         <span>Kits</span>
                     </H2>
                     <p className={classes.meta}>
-                        Clit ipsum aute est ullamco velit ad commodo laborum sint duis dolor ipsum
-                        reprehenderit qui.
+                        Event kits with tips, ideas, inspiration, resources and downloads for
+                        hosting your own Feminist AI LAN Parties on different topics
                     </p>
                 </div>
                 <ul className={classes.items}>
@@ -75,10 +75,7 @@ const Index: NextPage<{ kits: PageData[]; recaps: PageData[] }> = (props) => {
                     <H2 className={clsx(classes.title, classes.titleEvents)}>
                         <span>Events</span>
                     </H2>
-                    <p className={classes.meta}>
-                        Clit ipsum aute est ullamco velit ad commodo laborum sint duis dolor ipsum
-                        reprehenderit qui.
-                    </p>
+                    <p className={classes.meta}>Past and upcoming LAN Parties</p>
                 </div>
                 <table className={classes.events}>
                     <tbody>
@@ -115,8 +112,7 @@ const Index: NextPage<{ kits: PageData[]; recaps: PageData[] }> = (props) => {
                         <span>Recaps</span>
                     </H2>
                     <p className={classes.meta}>
-                        Clit ipsum aute est ullamco velit ad commodo laborum sint duis dolor ipsum
-                        reprehenderit qui.
+                        Event recaps, write-ups and documentation of past LAN Parties
                     </p>
                 </div>
                 <ul className={classes.items}>
@@ -152,8 +148,7 @@ const Index: NextPage<{ kits: PageData[]; recaps: PageData[] }> = (props) => {
                         <span>Partners</span>
                     </H2>
                     <p className={classes.meta}>
-                        Clit ipsum aute est ullamco velit ad commodo laborum sint duis dolor ipsum
-                        reprehenderit qui.
+                        Thanks to our partners for making Feminist AI LAN Parties possible!
                     </p>
                 </div>
                 <ul className={classes.partners}>
