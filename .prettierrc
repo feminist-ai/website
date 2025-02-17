@@ -7,7 +7,7 @@
   "printWidth": 100,
   "overrides": [
     {
-      "files": "*.tsx",
+      "files": "*.ts*",
       "options": {
         "tabWidth": 4
       }
