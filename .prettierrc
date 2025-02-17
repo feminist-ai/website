@@ -1,37 +1,37 @@
 {
-  "semi": false,
-  "singleQuote": true,
-  "trailingComma": "es5",
-  "tabWidth": 2,
-  "bracketSpacing": true,
-  "printWidth": 100,
-  "overrides": [
-    {
-      "files": "*.ts*",
-      "options": {
-        "tabWidth": 4
-      }
-    },
-    {
-      "files": "*.json",
-      "options": {
-        "tabWidth": 2
-      }
-    },
-    {
-      "files": "*.sass",
-      "options": {
-        "printWidth": 999
-      }
-    },
-    {
-      "files": "*.mdx",
-      "options": {
-        "tabWidth": 2,
-        "printWidth": 80,
-        "proseWrap": "always",
-        "htmlWhitespaceSensitivity": "strict"
-      }
-    }
-  ]
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "bracketSpacing": true,
+    "printWidth": 100,
+    "overrides": [
+        {
+            "files": "*.ts*",
+            "options": {
+                "tabWidth": 4
+            }
+        },
+        {
+            "files": "*.json",
+            "options": {
+                "tabWidth": 4
+            }
+        },
+        {
+            "files": "*.sass",
+            "options": {
+                "printWidth": 999
+            }
+        },
+        {
+            "files": "*.mdx",
+            "options": {
+                "tabWidth": 2,
+                "printWidth": 80,
+                "proseWrap": "always",
+                "htmlWhitespaceSensitivity": "strict"
+            }
+        }
+    ]
 }
