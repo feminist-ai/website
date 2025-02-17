@@ -1,7 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import PlausibleProvider from 'next-plausible'
 import clsx from 'clsx'
 
@@ -42,21 +41,20 @@ const Layout = (props: LayoutProps) => {
         children,
         Component = 'div',
     } = props
-    const router = useRouter()
     const titleText = metaTitle || title
     const pageTitlePrefix = titleText ? `${titleText} · ${META.title}` : `${META.title}`
     const pageTitle = addSlogan ? `${pageTitlePrefix} · ${META.slogan}` : pageTitlePrefix
     const pageDescription = description || META.description
     const pageImage = `https://${META.domain}${image || '/social.jpg'}`
-    //const pageUrl = `https://${META.domain}${router.asPath}`
+    const repoUrl = `https://github.com/${META.repo}/tree/main`
     const footer = [
         { title: META.title, url: '/', icon: 'copyright' },
-        { title: META.license, url: META.licenseUrl, icon: 'license' },
+        { title: 'License', url: `${repoUrl}/LICENSE`, icon: 'license' },
     ]
     if (sourceFile != null)
         footer.push({
             title: 'Contribute to this page',
-            url: `${META.repo}/tree/main/${sourceFile}`,
+            url: `${repoUrl}/${sourceFile}`,
             icon: 'heart',
         })
     return (
