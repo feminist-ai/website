@@ -75,7 +75,7 @@ If it's your first time or you're not sure how to get started, start with data e
 $ prodigy mark data_exploration ./data.jsonl --view-id text
 ```
 
-You can now move through the examples and click the green accept button or use the keyboard shortcut <Kbd>a</Kbd> to move on to the next example. You can also use the accept and reject buttons to mark examples to include or exclude later on.
+You can now move through the examples and click the green accept button or use the keyboard shortcut <Kbd>a</Kbd> to move on to the next example.
 
 {/** TODO: screenshot */}
 
@@ -83,6 +83,7 @@ You can now move through the examples and click the green accept button or use t
 
 - Use the data exploration phase to plan out your [annotation](#annotation) task and label scheme. For example, if you want to group the texts into categories, which category types make sense and reflect the reality of the data? As you continue exploring, the schema will likely change and evolve.
 - Go through the data together in the group and talk about what you see and what stands out. If participans are exploring individually, take screenshots of any interesting or funny examples and edge cases you come across and [discuss](#discussion) them in the group later.
+- Use the accept (<Kbd>a</Kbd>) and reject (<Kbd>x</Kbd>) decisions to sort the examples into data to include and use further, and data to exclude from your experiments. When you export your annotations with [`db-out`](https://prodi.gy/docs/recipes#db-out), this decision will be available via the `"answer"` key, making it easy to filter your data.
 
 ---
 
@@ -98,12 +99,12 @@ $ prodigy ner.manual ner_fashion_brands blank:en ./reddit.jsonl --label FASHION_
 <Video src="/videos/data_prodigy-annotation.mp4" width={838} height={524} caption={<>Example of span annotation with Prodigy. The selection automatically snaps to token boundaries and single-token spans can be added by double-clicking a token. The keyboard shortcut <Kbd>a</Kbd> accepts the annotation and moves to the next example. <Kbd>space</Kbd> lets you ignore and skip an example.</>} />
 
 <Grid columns={3}>
-<Card title="Named Entity Recognition" url="https://prodi.gy/docs/named-entity-recognition" icon="book">Annotate names and concepts.</Card>
-<Card title="Span Categorization" url="https://prodi.gy/docs/span-categorization" icon="book">Annotate arbitrary overlapping phrases.</Card>
+<Card title="Named Entity Recognition" url="https://prodi.gy/docs/named-entity-recognition" icon="book">Annotate names and concepts</Card>
+<Card title="Span Categorization" url="https://prodi.gy/docs/span-categorization" icon="book">Annotate arbitrary overlapping phrases</Card>
 <Card title="Text Classification" url="https://prodi.gy/docs/text-classification" icon="book">Assign one or more labels to the whole text</Card>
 </Grid>
 
-After saving your annotations, you can export your annotated data to a JSONL (newline-delimited JSON) file in Prodigy's [format](https://prodi.gy/docs/api-interfaces). You can also use the [`train`](https://prodi.gy/docs/recipes#train) recipe to train a [spaCy](https://spacy.io) model component from your collected annotations.
+After saving your annotations, you can run [`db-out`](https://prodi.gy/docs/recipes#db-out) to export your annotated data to a JSONL (newline-delimited JSON) file in Prodigy's [format](https://prodi.gy/docs/api-interfaces). You can also use the [`train`](https://prodi.gy/docs/recipes#train) recipe to train a [spaCy](https://spacy.io) model component from your collected annotations.
 
 ```bash
 ### Export data
@@ -120,6 +121,7 @@ Data annotation will work fine on your local machine, but for training, it's hel
 
 - Have all participants log the time spent annotating data. This lets you calculate the person hours (cumulative time it would have taken a single person) later on. You may find that it takes surprisingly few person hours to create a high-quality dataset that's large enough to train a task-specific model.
 - Take screenshots of any interesting or funny examples and edge cases you come across during annotation. You can later present and [discuss](#discussion) them in the group.
+- If you're unsure about an annotation decision, use the ignore button or <Kbd>space</Kbd> to skip the example. It's often not worth it to dwell on a single decision for too long and more important to stay in the flow.
 - If multiple participants are annotating, have a portion of the data annotated by everyone. Using Prodigy's [`review`](https://prodi.gy/docs/recipes#review) recipe and interface, you can then compare their decisions on the same examples and discuss disagreements with the group (also see the [discussion prompts](#discussion) for more ideas).
 - Break up your text into smaller chunks and separate the task into multiple steps wherever possible. This greatly reduces the cognitive load on the annotator (humans have a cache, too!) and makes the process more efficient and less error-prone. Multiple passes over the data may sound like more work, but can actually be more than [10× faster](https://explosion.ai/blog/sp-global-commodities#workflow) overall!
 
