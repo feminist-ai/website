@@ -24,7 +24,10 @@ interface SidebarProps {
 
 const Sidebar = (props: SidebarProps) => {
     const { kits = [] } = props
-    const { toc, authors, date, location } = props.data
+    const { toc, date, location } = props.data
+    const authors = (props.data.authors || []).map((author) =>
+        Array.isArray(author) ? author : [author]
+    )
     return (
         <nav>
             {(date || location) && (
@@ -60,7 +63,7 @@ const Sidebar = (props: SidebarProps) => {
                     </ul>
                 </section>
             )}
-            {authors && (
+            {authors.length > 0 && (
                 <section>
                     <h3 className={classes.sidebarTitle}>Author{authors.length > 1 && 's'}</h3>
                     <ul className={classes.sidebar}>

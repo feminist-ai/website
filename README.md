@@ -79,8 +79,8 @@ doc = nlp("Hello world!")
 | `<Grid />` | `columns` (int, default `2`) | Multi-column grid, used in combination with `<Card />` |
 | `<Card />` | `title` (str), `url` (str), [`icon`](src/images/icons) (str), [`image`](public/images) (str) | Resources, further links, downloads |
 | `<Gallery />` | `images` (list), `columns` (int, default `3`) | Photo or image gallery. Images can be a string path or a tuple of `[path, caption]` |
-| `<Video />` | `src` (str), `width` (int), `height` (int), `caption` (str) | Embedded video file. |
-| `<YouTube />` | `id` (str), `start` (int) | Embedded YouTube video. |
+| `<Video />` | `src` (str), `width` (int), `height` (int), `caption` (str) | Embedded video file |
+| `<YouTube />` | `id` (str), `start` (int) | Embedded YouTube video |
 | `<Mark />` | | Highlighted text |
 | `<Kbd />` | | Keyboard shortcuts |
 
@@ -122,8 +122,8 @@ toc:
   - ['This is a section', '#anchor']
   - ['This is another section', '#another-anchor']
 authors:
-  - ['Author Name', 'https://author-url.com']
-  - ['Another Author']
+  - ['Author with link', 'https://author-url.com']
+  - Author without link
 ---
 ```
 

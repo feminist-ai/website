@@ -22,7 +22,7 @@ export interface PageData {
     color?: string
     icon?: string
     toc?: [string, string][]
-    authors?: [string, string?][]
+    authors?: (string | [string, string?])[]
     date?: string
     location?: string
     kits?: string[]
