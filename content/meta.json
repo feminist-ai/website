@@ -26,6 +26,11 @@
             "title": "Pioneers Hub",
             "logo": "pioneershub.svg",
             "url": "https://pioneershub.de"
+        },
+        {
+            "title": "hessian.AI",
+            "logo": "hessian.svg",
+            "url": "https://hessian.ai"
         }
     ]
 }
