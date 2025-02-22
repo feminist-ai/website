@@ -18,7 +18,6 @@ interface LayoutProps {
     description?: string
     image?: string
     sourceFile?: string
-    addSlogan?: boolean
     isPage?: boolean
     header?: React.ReactNode
     className?: string
@@ -34,7 +33,6 @@ const Layout = (props: LayoutProps) => {
         image,
         header,
         sourceFile = null,
-        addSlogan = true,
         isPage = false,
         className,
         style,
@@ -42,8 +40,7 @@ const Layout = (props: LayoutProps) => {
         Component = 'div',
     } = props
     const titleText = metaTitle || title
-    const pageTitlePrefix = titleText ? `${titleText} · ${META.title}` : `${META.title}`
-    const pageTitle = addSlogan ? `${pageTitlePrefix} · ${META.slogan}` : pageTitlePrefix
+    const pageTitle = titleText ? `${titleText} · ${META.title}` : `${META.title}`
     const pageDescription = description || META.description
     const pageImage = `https://${META.domain}${image || '/social.jpg'}`
     const repoUrl = `https://github.com/${META.repo}/tree/main`
