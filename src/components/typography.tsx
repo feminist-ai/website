@@ -37,6 +37,7 @@ interface DateTimeProps {
 }
 
 interface MarkProps {
+    className?: string
     children: React.ReactNode
 }
 
@@ -118,7 +119,9 @@ export const DateTime = (props: DateTimeProps) => {
     )
 }
 
-export const Mark = (props: MarkProps) => <mark className={classes.mark}>{props.children}</mark>
+export const Mark = (props: MarkProps) => (
+    <mark className={clsx(classes.mark, props.className)}>{props.children}</mark>
+)
 
 export const Ol = (props: ListProps) => (
     <ol className={clsx(classes.ol, props.className)}>{props.children}</ol>

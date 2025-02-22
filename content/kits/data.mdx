@@ -17,7 +17,7 @@ authors:
 
 Data development lets your workshop participants get a feeling for the importance of engaging with data, explore patterns and limitations of general-purpose models, and use those models to create data for more accurate, smaller, faster and fully private task-specific components that you can run yourself.
 
-This kit includes workflows and tips for hosting a LAN Party on data development, annotation and data exploration. It can be applied to any data and topic you choose to work with and uses the [Prodigy](https://prodi.gy) annotation tool, which is available for free for your party. The data and task you use with this kit should ideally focus on **information extraction**, i.e. categorizing text or extracting structured information from it.
+This kit includes workflows and tips for hosting a LAN Party on data development, annotation and data exploration. It can be applied to any data and topic you choose to work with and uses the [Prodigy](https://prodi.gy) annotation tool, which is available for free for your party. The data and task you use with this kit should ideally focus on <Mark>information extraction</Mark>, i.e. categorizing text or extracting structured information from it.
 
 ## Introduction to Prodigy {id="prodigy"}
 
@@ -132,7 +132,7 @@ Data annotation will work fine on your local machine, but for training, it's hel
 
 One of the most powerful data development use cases is distilling larger general-purpose LLMs into smaller, task-specific components. You can do this by using the LLM to pre-annotate and help you create data faster, and then train a small model on the created annotations.
 
-In this workflow, the LLM is only used **during development**, which is not only more cost-effective, but also ensures no real-world runtime data has to be sent to external model APIs or slow generative models. In production, the system only uses the distilled task-specific component that's more accurate, faster and fully private.
+In this workflow, the LLM is only used <Mark>during development</Mark>, which is not only more cost-effective, but also ensures no real-world runtime data has to be sent to external model APIs or slow generative models. In production, the system only uses the distilled task-specific component that's **more accurate**, **faster** and fully **private**.
 
 
 ![Flowchart of human-in-the-loop distillation workflow](/images/data_distillation.jpg "Human-in-the-loop distillation workflow using a Large Language Model to create data for a task-specific component, trained with transfer learning")
