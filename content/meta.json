@@ -3,7 +3,7 @@
     "description": "A safe, inclusive and hacker-oriented space for experimenting with the intersection of feminism and AI.",
     "domain": "feminist-ai.party",
     "socials": {
-        "bluesky": "TODO",
+        "bluesky": "feminist-ai.bsky.social",
         "github": "feminist-ai"
     },
     "repo": "feminist-ai/website",
