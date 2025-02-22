@@ -19,6 +19,11 @@ import iconCopyright from './copyright.png'
 import iconLicense from './license.png'
 import iconCheck from './check.png'
 import iconVideo from './video.png'
+import iconParty from './party.png'
+import iconRobot from './robot.png'
+import iconThoughts from './thoughts.png'
+import iconCrystal from './crystal.png'
+import iconLightning from './lightning.png'
 
 const ICONS: Record<string, StaticImageData> = {
     pin: iconPin,
@@ -40,6 +45,11 @@ const ICONS: Record<string, StaticImageData> = {
     license: iconLicense,
     check: iconCheck,
     video: iconVideo,
+    party: iconParty,
+    robot: iconRobot,
+    thoughts: iconThoughts,
+    crystal: iconCrystal,
+    lightning: iconLightning,
 }
 
 export default ICONS
