@@ -1,6 +1,6 @@
 $breakpoint: 768px
 $breakpoint-md: 1024px
-$titles: kits, events, recaps, partners
+$titles: about, kits, events, recaps, partners
 
 .logo
     position: relative
@@ -8,23 +8,36 @@ $titles: kits, events, recaps, partners
     height: auto
     max-width: 100%
     display: block
-    margin: 0 auto
+    margin: 0 auto 2rem
     padding: 2rem 0 0
 
     @media(max-width: #{$breakpoint})
         width: 250px
-        margin: 0 auto
+        margin: 0 auto 3rem
         padding: 0.5rem 0 0
 
-.intro
-    font-size: 2.2rem
-    margin: 0 auto 5rem
-    text-align: center
-    width: 550px
-    max-width: 100%
+.about
+    font-size: 1.9rem
+    line-height: 2
+    width: 100%
+    max-width: 725px
 
     @media(max-width: #{$breakpoint})
-        font-size: 1.8rem
+        font-size: 1.6rem
+
+    strong
+        white-space: nowrap
+
+.mark
+    font-size: 1.1em
+    margin: 0
+
+    &:nth-of-type(1)
+        transform: rotate(1deg)
+
+    &:nth-of-type(2),
+    &:nth-of-type(3)
+        transform: rotate(-1deg)
 
 .section
     display: grid

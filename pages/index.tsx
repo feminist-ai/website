@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 
 import Layout from '../src/components/layout'
-import { Link, OptionalLink, H2, H3, DateTime } from '../src/components/typography'
+import { Link, OptionalLink, H2, H3, DateTime, Mark } from '../src/components/typography'
 import Icon from '../src/components/icon'
 import logo from '../src/images/logo.png'
 import { getAllPages } from '../src/content'
@@ -36,11 +36,45 @@ const Index: NextPage<{ kits: PageData[]; recaps: PageData[] }> = (props) => {
             }
             sourceFile=""
         >
-            <p className={classes.intro}>
-                Clit ipsum aute est ullamco velit ad commodo laborum sint duis dolor ipsum
-                reprehenderit qui. Aliqua enim commodo velit. Et proident enim incididunt ad sunt eu
-                enim adipisicing.
-            </p>
+            <section className={classes.section} id="about">
+                <div>
+                    <H2 className={clsx(classes.title, classes.titleAbout)}>
+                        <span>About</span>
+                    </H2>
+                    <p className={classes.meta}>What is this all about?</p>
+                </div>
+                <p className={classes.about}>
+                    We aim to create a <strong>safe</strong>,{' '}
+                    <strong>
+                        <Icon name="heart" size={26} /> inclusive
+                    </strong>{' '}
+                    and <strong>hacker-oriented space</strong> for experimenting with the
+                    intersection of <Mark className={classes.mark}>feminism</Mark> and{' '}
+                    <Icon name="robot" size={26} />{' '}
+                    <Mark className={classes.mark}>artificial intelligence</Mark>. Feminist AI LAN
+                    Parties are
+                    <strong>
+                        <Icon name="speech" size={26} /> participatory events
+                    </strong>{' '}
+                    where everyone can be involved and{' '}
+                    <strong>
+                        <Icon name="thoughts" size={26} /> learn
+                    </strong>
+                    , <strong>train</strong>,{' '}
+                    <strong>
+                        <Icon name="crystal" size={26} /> imagine
+                    </strong>
+                    , <strong>co-create</strong> and{' '}
+                    <strong>
+                        <Icon name="computer" size={26} /> hack
+                    </strong>
+                    . The goal is to develop artistic and scientific contributions to the greater
+                    machine learning community and of course to <Icon name="party" size={26} />{' '}
+                    <Mark className={classes.mark}>have fun</Mark>, <strong>experiment</strong>,{' '}
+                    <strong>network</strong> and <strong>play</strong>!
+                </p>
+            </section>
+
             <section className={classes.section} id="kits">
                 <div>
                     <H2 className={clsx(classes.title, classes.titleKits)}>
