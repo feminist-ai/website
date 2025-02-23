@@ -1,3 +1,8 @@
+/**
+ * Pixel icons: Copyright (c) 2018-2024, the SerenityOS developers
+ * https://github.com/SerenityOS/serenity/blob/master/LICENSE
+ */
+
 import { StaticImageData } from 'next/image'
 
 import iconPin from './pin.png'
