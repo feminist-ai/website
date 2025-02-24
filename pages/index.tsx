@@ -37,7 +37,7 @@ const Index: NextPage<{ kits: PageData[]; recaps: PageData[] }> = (props) => {
             sourceFile=""
         >
             <section className={classes.section} id="about">
-                <div>
+                <div className={classes.aboutMeta}>
                     <H2 className={clsx(classes.title, classes.titleAbout)}>
                         <span>About</span>
                     </H2>
