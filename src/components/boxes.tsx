@@ -98,12 +98,12 @@ export const Gallery = (props: GalleryProps) => {
     return (
         <Grid columns={columns} className={classes.gallery}>
             {images.map((item, i) => {
-                const [image, caption] = Array.isArray(item) ? item : [item, null]
+                const [image, alt, caption] = Array.isArray(item) ? item : [item, null, null]
                 return (
                     <figure className={classes.galleryItem} key={i}>
                         <div className={classes.galleryImage}>
                             <Link href={image} noStyle>
-                                <Image src={image} fill alt={caption || ''} />
+                                <Image src={image} fill alt={alt || ''} />
                             </Link>
                         </div>
                         {caption && (

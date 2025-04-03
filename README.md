@@ -78,7 +78,7 @@ doc = nlp("Hello world!")
 | `<Infobox />` | `title` (str), [`icon`](src/images/icons) (str) | Important notes, additional info, warnings |
 | `<Grid />` | `columns` (int, default `2`) | Multi-column grid, used in combination with `<Card />` |
 | `<Card />` | `title` (str), `url` (str), [`icon`](src/images/icons) (str), [`image`](public/images) (str) | Resources, further links, downloads |
-| `<Gallery />` | `images` (list), `columns` (int, default `3`) | Photo or image gallery. Images can be a string path or a tuple of `[path, caption]` |
+| `<Gallery />` | `images` (list), `columns` (int, default `3`) | Photo or image gallery. Images can be a string path or a tuple of `[path, alt, caption]` |
 | `<Video />` | `src` (str), `width` (int), `height` (int), `caption` (str) | Embedded video file |
 | `<YouTube />` | `id` (str), `start` (int) | Embedded YouTube video |
 | `<Mark />` | | Highlighted text |
@@ -99,8 +99,8 @@ This is an infobox with text, a title and an icon.
 </Grid>
 
 <Gallery images={[
-  ["/images/photo1.jpg", "This is a caption"],
-  "/images/photo2.jpg",
+  ["/images/photo1.jpg", "Alt text", "This is a caption"],
+  ["/images/photo2.jpg", "Alt text"],
   "/images/photo3.jpg"
 ]} />
 
