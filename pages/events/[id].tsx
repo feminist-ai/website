@@ -5,18 +5,18 @@ import { getPage, getPageIds, getAllPages, serializeMdx } from '../../src/conten
 import type { PageProps, ContextType } from '../../src/content'
 
 export async function getStaticProps(context: ContextType) {
-    const data = await getPage('recap', context.params.id)
+    const data = await getPage('event', context.params.id)
     const kits = getAllPages('kit')
     const mdxSource = await serializeMdx(data.content)
     return { props: { data, mdxSource, kits } }
 }
 
 export const getStaticPaths = async () => {
-    return { paths: getPageIds('recap'), fallback: false }
+    return { paths: getPageIds('event'), fallback: false }
 }
 
-const Recap = (props: PageProps) => {
-    return <Page {...props} type="recap" />
+const Event = (props: PageProps) => {
+    return <Page {...props} type="event" />
 }
 
-export default Recap
+export default Event

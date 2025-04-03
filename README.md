@@ -11,8 +11,8 @@ The website consists of mostly 3 types of content, provided via the directory [`
 | Type | Source | Description |
 | --- | --- | --- |
 | **Kit** | [`kits/{id}.mdx`](content/kits) | Event kits for different topics including instructions, downloadable templates and resources you can use to host your own Feminist AI LAN Party. |
-| **Recap** | [`recaps/{id}.mdx`](content/recaps) | Recaps and summaries of past events. If you've hosted your own Feminist AI LAN Party, you can contribute a recap to share your experiences and results. |
-| **Event** | [`events.json`](content/events.json) | Past and future Feminist AI LAN Parties. Past events can optionally link to a recap if available. |
+| **Event Page** | [`events/{id}.mdx`](content/events) | Recaps, summaries or calls for participation for future and past events. If you've hosted your own Feminist AI LAN Party, you can contribute a recap to share your experiences and results. |
+| **Event** | [`events.json`](content/events.json) | Past and future Feminist AI LAN Parties. Past events can optionally link to an event page if available. |
 
 ### Repo structure
 
@@ -23,15 +23,15 @@ The website and repo is designed to make it as easy as possible to make changes 
 ┣━━ 📂 content
 ┃   ┣━━ 📂 kits             # different event kits as *.mdx
 ┃   ┃   ┗━━ 📄 {kit}.mdx    # kit content and metadata
-┃   ┣━━ 📂 recaps           # different event recaps as *.mdx
-┃   ┃   ┗━━ 📄 {recap}.mdx  # recap content and metadata
+┃   ┣━━ 📂 events           # different event pages as *.mdx
+┃   ┃   ┗━━ 📄 {event}.mdx  # event content and metadata
 ┃   ┣━━ 📄 events.json      # list of future and past events to display
 ┃   ┗━━ 📄 meta.json        # website meta information
 ┣━━ 📂 pages                # source of pages
 ┣━━ 📂 public
-┃   ┣━━ 📂 images           # images used by kits and recaps
+┃   ┣━━ 📂 images           # images used by kits and events
 ┃   ┣━━ 📂 templates        # downloadable and printable PDF templates
-┃   ┗━━ 📂 videos           # videos used by kits and recaps
+┃   ┗━━ 📂 videos           # videos used by kits and events
 ┗━━ 📂 src                  # website source and components
 ```
 
@@ -127,7 +127,7 @@ authors:
 ---
 ```
 
-Recaps can optionally specify a `date` and `location`, as well as the IDs of related kits, which are then shown in the sidebar and at the bottom of the page.
+Event pages can optionally specify a `date` and `location`, as well as the IDs of related kits, which are then shown in the sidebar and at the bottom of the page.
 
 ```yaml
 date: 2024-09-28

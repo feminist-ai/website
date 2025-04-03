@@ -113,7 +113,7 @@ const Page = (props: PageProps) => {
             <header className={classes.header}>
                 <H1>
                     <span
-                        className={clsx(classes.label, { [classes.labelRecap]: type == 'recap' })}
+                        className={clsx(classes.label, { [classes.labelEvent]: type == 'event' })}
                     >
                         {label}
                     </span>

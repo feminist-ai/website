@@ -11,9 +11,9 @@ import RemarkCodeBlocks from './plugins/remarkCodeBlocks.mjs'
 
 const CONTENT_DIRECTORY = path.join(process.cwd(), 'content')
 const KITS_DIRECTORY = path.join(CONTENT_DIRECTORY, 'kits')
-const RECAPS_DIRECTORY = path.join(CONTENT_DIRECTORY, 'recaps')
+const EVENTS_DIRECTORY = path.join(CONTENT_DIRECTORY, 'events')
 
-export type PageType = 'kit' | 'recap'
+export type PageType = 'kit' | 'event'
 
 export interface PageData {
     id: string
@@ -38,7 +38,7 @@ export interface ContextType {
 }
 
 export function getPageIds(type: PageType) {
-    const sourceDir = type == 'kit' ? KITS_DIRECTORY : RECAPS_DIRECTORY
+    const sourceDir = type == 'kit' ? KITS_DIRECTORY : EVENTS_DIRECTORY
     const fileNames = fs.readdirSync(sourceDir)
     return fileNames.map((fileName) => {
         return { params: { id: fileName.replace(/\.mdx$/, '') } }
@@ -46,7 +46,7 @@ export function getPageIds(type: PageType) {
 }
 
 export function getAllPages(type: PageType) {
-    const sourceDir = type == 'kit' ? KITS_DIRECTORY : RECAPS_DIRECTORY
+    const sourceDir = type == 'kit' ? KITS_DIRECTORY : EVENTS_DIRECTORY
     const fileNames = fs.readdirSync(sourceDir)
     return fileNames.map((fileName) => {
         const id = fileName.replace(/\.mdx$/, '')
@@ -58,7 +58,7 @@ export function getAllPages(type: PageType) {
 }
 
 export async function getPage(type: PageType, id: string) {
-    const sourceDir = type == 'kit' ? KITS_DIRECTORY : RECAPS_DIRECTORY
+    const sourceDir = type == 'kit' ? KITS_DIRECTORY : EVENTS_DIRECTORY
     const fullPath = path.join(sourceDir, `${id}.mdx`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const { content, data } = parseFrontmatter(fileContents)

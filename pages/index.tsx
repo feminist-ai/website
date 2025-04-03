@@ -16,15 +16,15 @@ import generateRssFeed from '../src/rss'
 
 export async function getStaticProps() {
     const kits = getAllPages('kit')
-    const recaps = getAllPages('recap').sort((a: any, b: any) =>
+    const events = getAllPages('events').sort((a: any, b: any) =>
         dayjs(b.date).isAfter(dayjs(a.date)) ? 1 : -1
     )
-    generateRssFeed([...kits, ...recaps])
-    return { props: { kits, recaps } }
+    generateRssFeed([...kits, ...events])
+    return { props: { kits, events } }
 }
 
-const Index: NextPage<{ kits: PageData[]; recaps: PageData[] }> = (props) => {
-    const { kits = [], recaps = [] } = props
+const Index: NextPage<{ kits: PageData[]; events: PageData[] }> = (props) => {
+    const { kits = [], events = [] } = props
     return (
         <Layout
             header={
@@ -114,71 +114,65 @@ const Index: NextPage<{ kits: PageData[]; recaps: PageData[] }> = (props) => {
                     </H2>
                     <p className={classes.meta}>Past and upcoming LAN Parties</p>
                 </div>
-                <table className={classes.events}>
-                    <tbody>
-                        {EVENTS.map((event, i) => {
-                            return (
-                                <tr key={i}>
-                                    <td className={classes.eventDate}>
-                                        <DateTime date={event.date} template="MMM DD, YYYY" />
-                                    </td>
-                                    <td>
-                                        <OptionalLink href={event.url}>{event.event}</OptionalLink>
-                                        {event.hosts && (
-                                            <ul className={classes.eventHosts}>
-                                                <Icon name="speech" title="Hosts" size={18} />{' '}
-                                                {event.hosts?.map((host, i) => (
-                                                    <li key={i}>{host}</li>
-                                                ))}
-                                            </ul>
-                                        )}
-                                    </td>
-                                    <td className={classes.eventLocation}>
-                                        <Icon name="pin" title="Location" /> {event.location}
-                                    </td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
+                <div>
+                    <table className={classes.events}>
+                        <tbody>
+                            {EVENTS.map((event, i) => {
+                                return (
+                                    <tr key={i}>
+                                        <td className={classes.eventDate}>
+                                            <DateTime date={event.date} template="MMM DD, YYYY" />
+                                        </td>
+                                        <td>
+                                            <OptionalLink href={event.url}>
+                                                {event.event}
+                                            </OptionalLink>
+                                            {event.hosts && (
+                                                <ul className={classes.eventHosts}>
+                                                    <Icon name="speech" title="Hosts" size={18} />{' '}
+                                                    {event.hosts?.map((host, i) => (
+                                                        <li key={i}>{host}</li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                        </td>
+                                        <td className={classes.eventLocation}>
+                                            <Icon name="pin" title="Location" /> {event.location}
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                    <ul className={classes.items}>
+                        {events.map((event) => (
+                            <li key={event.id} className={classes.item}>
+                                <Link href={`/events/${event.id}`} noStyle>
+                                    <H3 className={clsx(classes.itemTitle, classes.itemTitleSmall)}>
+                                        {event.title}
+                                    </H3>
+                                    <p>{event.description}</p>
+                                </Link>
+                                <ul className={classes.itemFooter}>
+                                    {event.date && (
+                                        <li>
+                                            <Icon name="calendar" size={13} title="Date" spaced />
+                                            <DateTime date={event.date} template="MMM DD, YYYY" />
+                                        </li>
+                                    )}
+                                    {event.location && (
+                                        <li>
+                                            <Icon name="pin" size={13} title="Location" spaced />
+                                            {event.location}
+                                        </li>
+                                    )}
+                                </ul>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </section>
 
-            <section className={classes.section} id="recaps">
-                <div>
-                    <H2 className={clsx(classes.title, classes.titleRecaps)}>
-                        <span>Recaps</span>
-                    </H2>
-                    <p className={classes.meta}>
-                        Event recaps, write-ups and documentation of past LAN Parties
-                    </p>
-                </div>
-                <ul className={classes.items}>
-                    {recaps.map((recap) => (
-                        <li key={recap.id} className={classes.item}>
-                            <Link href={`/recaps/${recap.id}`} noStyle>
-                                <H3 className={clsx(classes.itemTitle, classes.itemTitleSmall)}>
-                                    {recap.title}
-                                </H3>
-                                <p>{recap.description}</p>
-                            </Link>
-                            <ul className={classes.itemFooter}>
-                                {recap.date && (
-                                    <li>
-                                        <Icon name="calendar" size={13} title="Date" spaced />
-                                        <DateTime date={recap.date} template="MMM DD, YYYY" />
-                                    </li>
-                                )}
-                                {recap.location && (
-                                    <li>
-                                        <Icon name="pin" size={13} title="Location" spaced />
-                                        {recap.location}
-                                    </li>
-                                )}
-                            </ul>
-                        </li>
-                    ))}
-                </ul>
-            </section>
             <section className={classes.section} id="partners">
                 <div>
                     <H2 className={clsx(classes.title, classes.titlePartners)}>
