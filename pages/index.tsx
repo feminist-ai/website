@@ -16,7 +16,7 @@ import generateRssFeed from '../src/rss'
 
 export async function getStaticProps() {
     const kits = getAllPages('kit')
-    const events = getAllPages('events').sort((a: any, b: any) =>
+    const events = getAllPages('event').sort((a: any, b: any) =>
         dayjs(b.date).isAfter(dayjs(a.date)) ? 1 : -1
     )
     generateRssFeed([...kits, ...events])
