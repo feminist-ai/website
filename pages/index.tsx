@@ -2,6 +2,7 @@ import React from 'react'
 import type { NextPage } from 'next'
 import clsx from 'clsx'
 import Image from 'next/image'
+import dayjs from 'dayjs'
 
 import Layout from '../src/components/layout'
 import { Link, OptionalLink, H2, H3, DateTime, Mark } from '../src/components/typography'
@@ -15,7 +16,9 @@ import generateRssFeed from '../src/rss'
 
 export async function getStaticProps() {
     const kits = getAllPages('kit')
-    const recaps = getAllPages('recap')
+    const recaps = getAllPages('recap').sort((a: any, b: any) =>
+        dayjs(b.date).isAfter(dayjs(a.date)) ? 1 : -1
+    )
     generateRssFeed([...kits, ...recaps])
     return { props: { kits, recaps } }
 }
