@@ -29,6 +29,7 @@ import iconRobot from './robot.png'
 import iconThoughts from './thoughts.png'
 import iconCrystal from './crystal.png'
 import iconLightning from './lightning.png'
+import iconEmail from './email.png'
 
 const ICONS: Record<string, StaticImageData> = {
     pin: iconPin,
@@ -55,6 +56,7 @@ const ICONS: Record<string, StaticImageData> = {
     thoughts: iconThoughts,
     crystal: iconCrystal,
     lightning: iconLightning,
+    email: iconEmail,
 }
 
 export default ICONS

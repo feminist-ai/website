@@ -46,6 +46,7 @@ const Layout = (props: LayoutProps) => {
     const repoUrl = `https://github.com/${META.repo}/tree/main`
     const footer = [
         { title: META.title, url: '/', icon: 'copyright' },
+        { title: 'Contact', url: `mailto:${META.email}`, icon: 'email' },
         { title: 'License', url: `${repoUrl}/LICENSE`, icon: 'license' },
     ]
     if (sourceFile != null)

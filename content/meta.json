@@ -2,6 +2,7 @@
     "title": "Feminist AI LAN Party",
     "description": "A safe, inclusive and hacker-oriented space for experimenting with the intersection of feminism and AI.",
     "domain": "feministai.party",
+    "email": "organizers@feministai.party",
     "socials": {
         "bluesky": "feminist-ai.bsky.social",
         "github": "feminist-ai"
