@@ -100,7 +100,7 @@ const Page = (props: PageProps) => {
     const { id, title, color, icon, kits = [] } = props.data
     const allKits = Object.assign({}, ...(props.kits || []).map((kit) => ({ [kit.id]: kit })))
     const usedKits = kits.map((id) => allKits[id]).filter((data) => !!data)
-    const label = type == 'kit' ? 'Event Kit' : 'Event Recap'
+    const label = type == 'kit' ? 'Event Kit' : 'Event'
     return (
         <Layout
             Component="article"

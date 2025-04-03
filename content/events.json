@@ -6,9 +6,11 @@
             "event": "PyCon DE & PyData",
             "hosts": [
                 "Katharine Jarmul",
-                "Ines Montani"
+                "Ines Montani",
+                "hessian.AI"
             ],
-            "location": "Darmstadt, Germany"
+            "location": "Darmstadt, Germany",
+            "url": "/recaps/2025-04-23"
         },
         {
             "date": "2024-09-28",
@@ -16,9 +18,9 @@
             "location": "Berlin, Germany",
             "url": "/recaps/2024-09-28",
             "hosts": [
-                "Least Authority",
                 "Katharine Jarmul",
-                "Ines Montani"
+                "Ines Montani",
+                "Least Authority"
             ]
         }
     ]
