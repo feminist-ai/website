@@ -143,7 +143,7 @@ Event pages can optionally specify a `date` and `location`, as well as the IDs o
 ```yaml
 date: 2024-09-28
 location: Berlin, Germany
-kits: ['adversarial-attacks', 'data']
+kits: ['hacking-llms', 'data']
 ```
 
 
