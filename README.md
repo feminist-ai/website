@@ -47,6 +47,8 @@ Markdown headlines can specify the attribute `id` in curly braces, which is used
 ## This is a headline {id="headline"}
 
 ### This is a sub-headline {id="sub-headline"}
+
+### This is a sub-headline with an icon {id="sub-headline-icon", icon="heart"}
 ```
 
 #### Code blocks
@@ -71,6 +73,14 @@ doc = nlp("Hello world!")
 ```
 ````
 
+#### Variables
+
+To make it easy to update details like our Bluesky profile or email and only define it in one place, you can include it as a variable. Variables can be used within Markdown in text content or links, e.g. `[[BLUESKY]]`. Note that at the moment, variables only work in regular Markdown, not in custom component attributes like `title="..."`.
+
+```markdown
+Please [reach out via email](mailto:[[EMAIL]]) or on [Bluesky]([[BLUESKY]]).
+```
+
 #### Custom elements
 
 | Element | Attributes | Use case |
@@ -83,6 +93,7 @@ doc = nlp("Hello world!")
 | `<YouTube />` | `id` (str), `start` (int) | Embedded YouTube video |
 | `<Mark />` | | Highlighted text |
 | `<Kbd />` | | Keyboard shortcuts |
+| `<Icon />` | [`name`](src/images/icons) (str), `size` (int), `title` (str) | An icon (if used in regular text or component that doesn't have `icon` setting) |
 
 ```mdx
 This is <Mark>highlighted</Mark>. To copy, press <Kbd>ctrl</Kbd>+<Kbd>c</Kbd>.

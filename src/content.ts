@@ -8,6 +8,8 @@ import RehypeTitleFigure from 'rehype-title-figure'
 
 import RemarkCustomAttrs from './plugins/remarkCustomAttrs.mjs'
 import RemarkCodeBlocks from './plugins/remarkCodeBlocks.mjs'
+import RemarkVariables from './plugins/remarkVariables.mjs'
+import { VARIABLES } from '../content'
 
 const CONTENT_DIRECTORY = path.join(process.cwd(), 'content')
 const KITS_DIRECTORY = path.join(CONTENT_DIRECTORY, 'kits')
@@ -79,6 +81,7 @@ export async function serializeMdx(content: string) {
         mdxOptions: {
             remarkPlugins: [
                 RemarkGfm,
+                [RemarkVariables, { fence: ['[[', ']]'], data: VARIABLES }],
                 // @ts-ignore
                 [RemarkSmartypants, { dashes: 'oldschool' }],
                 RemarkCustomAttrs,

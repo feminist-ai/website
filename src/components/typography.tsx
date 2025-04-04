@@ -3,6 +3,7 @@ import NextLink from 'next/link'
 import dayjs from 'dayjs'
 import clsx from 'clsx'
 
+import Icon from './icon'
 import classes from '../styles/typography.module.sass'
 
 interface LinkProps {
@@ -22,6 +23,7 @@ interface OptionalLinkProps extends Omit<LinkProps, 'href'> {
 
 interface HProps {
     id?: string
+    icon?: string
     className?: string
     children: React.ReactNode
 }
@@ -83,7 +85,7 @@ export const OptionalLink = (props: OptionalLinkProps) => {
 }
 
 export const H = (props: HBaseProps) => {
-    const { Component, id, className, children, ...restProps } = props
+    const { Component, id, icon, className, children, ...restProps } = props
     return (
         <Component
             id={id}
@@ -91,6 +93,7 @@ export const H = (props: HBaseProps) => {
             {...restProps}
         >
             <OptionalLink href={id ? `#${id}` : undefined} noStyle>
+                {icon && <Icon name={icon} className={classes.hIcon} />}
                 {children}
             </OptionalLink>
         </Component>

@@ -30,7 +30,7 @@ interface InfoboxProps {
 }
 
 interface GalleryProps {
-    images: ([string, string?] | string)[]
+    images: ([string, string?, string?] | string)[]
     columns?: number
 }
 
@@ -102,7 +102,7 @@ export const Gallery = (props: GalleryProps) => {
                 return (
                     <figure className={classes.galleryItem} key={i}>
                         <div className={classes.galleryImage}>
-                            <Link href={image} noStyle>
+                            <Link href={image} noStyle target="_blank">
                                 <Image src={image} fill alt={alt || ''} />
                             </Link>
                         </div>
