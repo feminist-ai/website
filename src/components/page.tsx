@@ -103,6 +103,7 @@ const Page = (props: PageProps) => {
     const label = type == 'kit' ? 'Event Kit' : 'Event'
     return (
         <Layout
+            title={title}
             Component="article"
             isPage
             className={classes.root}
