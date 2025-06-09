@@ -2,6 +2,15 @@
     "$schema": "./.events.schema.json",
     "events": [
         {
+            "date": "2025-06-07",
+            "event": "PyData London: Feminist AI Lounge",
+            "hosts": [
+                "Ines Montani"
+            ],
+            "location": "London, United Kingdom",
+            "url": "/events/2025-06-07"
+        },
+        {
             "date": "2025-04-23",
             "event": "PyCon DE & PyData",
             "hosts": [

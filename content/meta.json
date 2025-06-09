@@ -34,6 +34,11 @@
             "title": "hessian.AI",
             "logo": "hessian.svg",
             "url": "https://hessian.ai"
+        },
+        {
+            "title": "PyData",
+            "logo": "pydata.png",
+            "url": "https://pydata.org"
         }
     ]
 }
