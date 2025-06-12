@@ -2,6 +2,24 @@
     "$schema": "./.events.schema.json",
     "events": [
         {
+            "date": "2025-09-24",
+            "event": "PyData Amsterdam",
+            "hosts": [
+                "Ines Montani"
+            ],
+            "location": "Amsterdam, Netherlands"
+        },
+        {
+            "date": "2025-07-09",
+            "event": "Feminist AI London kick off party",
+            "hosts": [
+                "Cheuk Ting Ho",
+                "Rachel-Lee Nabors"
+            ],
+            "location": "London, United Kingdom",
+            "url": "https://lu.ma/m1r895wx"
+        },
+        {
             "date": "2025-06-07",
             "event": "PyData London: Feminist AI Lounge",
             "hosts": [
